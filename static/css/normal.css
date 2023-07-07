@@ -1,0 +1,54 @@
+view {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+@keyframes updom {
+	0% {
+		transform: translateY(-6rpx);
+	}
+	50% {
+		transform: translateY(0);
+	}
+	100% {
+		transform: translateY(6rpx);
+	}
+}
+
+.animation_up {
+	animation: updom 2s linear .1s infinite alternate;
+}
+
+.head_content {
+	padding: 12rpx 20rpx;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.head_title {
+	font-size: 36rpx;
+	font-weight: 500;
+	color: #313131;
+	white-space: normal;
+}
+
+.head_text {
+	font-size: 26rpx;
+	font-weight: 500;
+	color: #464646;
+	white-space: normal;
+	display: flex;
+	align-items: center;
+}
+
+.head_content_bg {
+	background: #F8F8F8 !important;
+}
+
+.over1 {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

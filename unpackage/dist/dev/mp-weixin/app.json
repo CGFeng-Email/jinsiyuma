@@ -1,0 +1,62 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/login/login",
+    "pages/login/register",
+    "pages/agreement/user",
+    "pages/agreement/privacy",
+    "pages/product/product",
+    "pages/case/case",
+    "pages/map/map",
+    "pages/me/me"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "backgroundColor": "#fff",
+    "color": "#CDCDCD",
+    "selectedColor": "#0A2B4E",
+    "list": [
+      {
+        "iconPath": "static/img/index-icon.png",
+        "selectedIconPath": "static/img/index-hover.png",
+        "text": "首页",
+        "pagePath": "pages/index/index"
+      },
+      {
+        "iconPath": "static/img/product-icon.png",
+        "selectedIconPath": "static/img/product-hover.png",
+        "text": "产品馆",
+        "pagePath": "pages/product/product"
+      },
+      {
+        "iconPath": "static/img/case-icon.png",
+        "selectedIconPath": "static/img/case-hover.png",
+        "text": "案例馆",
+        "pagePath": "pages/case/case"
+      },
+      {
+        "iconPath": "static/img/map-icon.png",
+        "selectedIconPath": "static/img/map-hover.png",
+        "text": "门店地址",
+        "pagePath": "pages/map/map"
+      },
+      {
+        "iconPath": "static/img/me-icon.png",
+        "selectedIconPath": "static/img/me-hover.png",
+        "text": "我的",
+        "pagePath": "pages/me/me"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "用于计算定位地点距离"
+    }
+  },
+  "usingComponents": {}
+}

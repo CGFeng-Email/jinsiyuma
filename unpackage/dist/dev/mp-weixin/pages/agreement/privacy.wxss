@@ -1,0 +1,9 @@
+.content.data-v-61a4984c {
+  padding: 14rpx 14rpx 60rpx;
+  font-size: 28rpx;
+  line-height: 42rpx;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+

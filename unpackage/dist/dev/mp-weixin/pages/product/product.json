@@ -1,0 +1,8 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "u-navbar": "/uni_modules/uview-ui/components/u-navbar/u-navbar",
+    "u--image": "/uni_modules/uview-ui/components/u--image/u--image",
+    "uni-swiper-dot": "/uni_modules/uni-swiper-dot/components/uni-swiper-dot/uni-swiper-dot"
+  }
+}
