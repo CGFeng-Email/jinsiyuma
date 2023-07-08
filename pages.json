@@ -38,6 +38,19 @@
 			"style": {
 				"navigationStyle": "custom"
 			}
+		}, 
+		{
+			"path": "pages/product/product_list",
+			"style": {
+				"navigationBarTitleText": "产品款式",
+				"navigationBarBackgroundColor": "#fff"
+			}
+		},
+		{
+			"path": "pages/product/product_details",
+			"style": {
+				"navigationStyle": "custom"
+			}
 		},
 		{
 			"path": "pages/case/case",
@@ -53,6 +66,12 @@
 		},
 		{
 			"path": "pages/me/me",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/search/search",
 			"style": {
 				"navigationStyle": "custom"
 			}
@@ -88,7 +107,7 @@
 				"selectedIconPath": "static/img/map-hover.png",
 				"text": "门店地址",
 				"pagePath": "pages/map/map"
-			},{
+			}, {
 				"iconPath": "static/img/me-icon.png",
 				"selectedIconPath": "static/img/me-hover.png",
 				"text": "我的",

@@ -1,0 +1,20 @@
+
+.sk-transparent {
+	color: transparent !important;
+}
+.sk-text-7-1429-716 {
+	background-image: linear-gradient(transparent 7.1429%, #eeeeee 0%, #eeeeee 92.8571%, transparent 0%) !important;
+	background-size: 100% 56rpx;
+	position: relative !important;
+}
+.sk-text {
+	background-origin: content-box !important;
+	background-clip: content-box !important;
+	background-color: transparent !important;
+	color: transparent !important;
+	background-repeat: repeat-y !important;
+}
+.sk-image {
+	background: #efefef !important;
+}
+

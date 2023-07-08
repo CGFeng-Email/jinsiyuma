@@ -28,6 +28,27 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "seatch",
+          "pathName": "pages/search/search",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "产品馆列表",
+          "pathName": "pages/product/product_list",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "产品馆详情",
+          "pathName": "pages/product/product_details",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

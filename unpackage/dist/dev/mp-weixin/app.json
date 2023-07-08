@@ -6,9 +6,12 @@
     "pages/agreement/user",
     "pages/agreement/privacy",
     "pages/product/product",
+    "pages/product/product_list",
+    "pages/product/product_details",
     "pages/case/case",
     "pages/map/map",
-    "pages/me/me"
+    "pages/me/me",
+    "pages/search/search"
   ],
   "subPackages": [],
   "window": {

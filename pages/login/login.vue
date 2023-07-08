@@ -24,6 +24,7 @@ export default {
 	data() {
 		return {
 			video_src: 'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/MP4/Hologram_Planet_by_nuva_preview.mp4',
+			
 		};
 	},
 	methods: {

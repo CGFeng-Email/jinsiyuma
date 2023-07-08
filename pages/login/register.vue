@@ -7,7 +7,7 @@
 				<picker class="picker" @change="bindPickerChange" :value="index" :range="array">
 					<view class="uni-input">
 						+{{ array[index] }}
-						<i class="iconfont icon-xia1"></i>
+						<i class="iconfont icon-xiala2"></i>
 					</view>
 				</picker>
 				<u-form-item class="input_box" prop="phone" borderBottom>
@@ -34,6 +34,9 @@
 			和
 			<view class="text" @click="privacy_agreement">《隐私协议》</view>
 		</view>
+		<view class="login_logo">
+			<image class="cover" :src="login_logo" mode="widthFix"></image>
+		</view>
 	</view>
 </template>
 
@@ -43,6 +46,7 @@ import { checkPhone } from '../../utils/regular.js';
 export default {
 	data() {
 		return {
+			login_logo: 'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/jinsiyuma/login_logo.png',
 			array: ['86', '001', '400', '800'],
 			index: 0,
 			seconds: 60,
@@ -229,6 +233,16 @@ export default {
 		.text {
 			display: inline-block;
 			color: #0a2b4e;
+		}
+	}
+	
+	.login_logo {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		z-index: -1;
+		.cover {
+			
 		}
 	}
 }

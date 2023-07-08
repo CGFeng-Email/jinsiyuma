@@ -1,0 +1,19 @@
+.product_details .u-nav-slot.data-v-344b5269 {
+  display: flex;
+}
+.product_details .u-nav-slot .icon.data-v-344b5269 {
+  padding-right: 12rpx;
+}
+.product_details .indicator-num.data-v-344b5269 {
+  padding: 2px 0;
+  background-color: rgba(0, 0, 0, 0.35);
+  border-radius: 100px;
+  width: 35px;
+  display: flex;
+  justify-content: center;
+}
+.product_details .indicator-num__text.data-v-344b5269 {
+  color: #ffffff;
+  font-size: 12px;
+}
+

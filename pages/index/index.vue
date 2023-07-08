@@ -2,7 +2,7 @@
 	<view class="container">
 		<u-loading-page :loading="loading" loading-text="快速加载中..." bg-color="#f8f8f8" fontSize="14" iconSize="36" color="#999" loadingColor="#999"></u-loading-page>
 		<view v-if="!loading" class="index_content">
-			<u-navbar :title="scroll_number <= 44 ? ' ' : navbar_title" :bgColor="scroll_number <= 44 ? navbar_bg : 'rgba(255, 255, 255, .7)'"></u-navbar>
+			<u-navbar :title="scroll_number <= 44 ? ' ' : navbar_title" :bgColor="scroll_number <= 44 ? navbar_bg : 'rgba(255, 255, 255, .8)'"></u-navbar>
 			<view class="swiper">
 				<u-swiper
 					height="100vh"
@@ -259,7 +259,7 @@ export default {
 	created() {
 		setTimeout(() => {
 			this.loading = false
-		}, 1500)
+		}, 500)
 	},
 	methods: {
 		onPageScroll(e) {

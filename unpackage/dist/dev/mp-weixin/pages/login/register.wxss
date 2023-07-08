@@ -79,4 +79,10 @@
   display: inline-block;
   color: #0a2b4e;
 }
+.container .login_logo.data-v-24dc7ac2 {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
 
