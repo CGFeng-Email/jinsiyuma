@@ -11,12 +11,13 @@
     "minified": true,
     "newFeature": true,
     "bigPackageSizeSupport": true,
+    "condition": false,
+    "ignoreUploadUnusedFiles": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
-    },
-    "condition": true
+    }
   },
   "compileType": "miniprogram",
   "libVersion": "",

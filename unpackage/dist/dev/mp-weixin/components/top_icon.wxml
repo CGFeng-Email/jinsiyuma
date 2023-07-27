@@ -1,0 +1,1 @@
+<block wx:if="{{topShow}}"><view class="{{['top_icon','animate_fade','data-v-65446bde',right_num?'top_right':'']}}"><image class="icon data-v-65446bde" src="/static/img/top_icon.png" mode="widthFix" data-event-opts="{{[['tap',[['topItem',['$event']]]]]}}" bindtap="__e"></image></view></block>

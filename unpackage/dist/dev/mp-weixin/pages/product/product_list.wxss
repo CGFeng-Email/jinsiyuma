@@ -10,6 +10,9 @@ page {
   background: #fff;
   margin-bottom: 10rpx;
 }
+.product_list .list .item.data-v-1ded6807:last-child {
+  margin-bottom: 0;
+}
 .product_list .list .item .head.data-v-1ded6807 {
   padding: 30rpx 30rpx 0 30rpx;
   display: flex;
@@ -51,8 +54,10 @@ page {
   justify-content: space-between;
   align-items: center;
   padding-bottom: 20rpx;
+  padding-right: 20rpx;
 }
 .product_list .list .item .item_content .item__content_left.data-v-1ded6807 {
+  width: 122rpx;
   display: flex;
   height: 100%;
   flex-direction: column;
@@ -62,22 +67,22 @@ page {
   flex: none;
 }
 .product_list .list .item .item_content .item__content_left .left_box.data-v-1ded6807 {
+  text-align: center;
   padding-right: 28rpx;
   padding-bottom: 20rpx;
 }
 .product_list .list .item .item_content .item__content_left .icon .iconfont.data-v-1ded6807 {
   font-size: 36rpx;
-  color: #CDCDCD;
+  color: #cdcdcd;
 }
 .product_list .list .item .item_content .item__content_left .icon .icon-shoucang-yishoucang.data-v-1ded6807 {
-  color: #FCC863;
+  color: #fcc863;
 }
 .product_list .list .item .item_content .item__content_left .text.data-v-1ded6807 {
   padding-bottom: 20rpx;
 }
 .product_list .list .item .item_content .cover_box.data-v-1ded6807 {
   flex: 1;
-  border-radius: 0 0 0 40rpx;
   height: 350rpx;
   overflow: hidden;
   background: #f8f8f8;

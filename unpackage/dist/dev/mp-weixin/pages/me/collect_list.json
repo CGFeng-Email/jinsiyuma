@@ -1,0 +1,10 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "u-count-to": "/uni_modules/uview-ui/components/u-count-to/u-count-to",
+    "u--image": "/uni_modules/uview-ui/components/u--image/u--image",
+    "u-loadmore": "/uni_modules/uview-ui/components/u-loadmore/u-loadmore",
+    "f-i-x-e-d-n-a-v-b-a-r": "/components/fixed_navbar",
+    "l-i-s-t": "/pages/case/list"
+  }
+}

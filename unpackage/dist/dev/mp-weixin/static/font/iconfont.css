@@ -1,4 +1,9 @@
-@font-face {  font-family: "iconfont"; /* Project id 4107933 */  src: url('@/static/font/iconfont.woff2?t=1688726736789') format('woff2'),       url('@/static/font/iconfont.woff?t=1688726736789') format('woff'),       url('@/static/font/iconfont.ttf?t=1688726736789') format('truetype');}
+@font-face {
+  font-family: "iconfont"; /* Project id 4107933 */
+  src: url('@/static/font/iconfont.woff2?t=1689906092606') format('woff2'),
+       url('@/static/font/iconfont.woff?t=1689906092606') format('woff'),
+       url('@/static/font/iconfont.ttf?t=1689906092606') format('truetype');
+}
 
 .iconfont {
   font-family: "iconfont" !important;
@@ -6,6 +11,46 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-sousuo:before {
+  content: "\e632";
+}
+
+.icon-sousuo1:before {
+  content: "\e8ba";
+}
+
+.icon-xiangshang:before {
+  content: "\e604";
+}
+
+.icon-31xiala:before {
+  content: "\e60e";
+}
+
+.icon-xiangshang2:before {
+  content: "\e76e";
+}
+
+.icon-xiala3:before {
+  content: "\e6ba";
+}
+
+.icon-shuxian:before {
+  content: "\e638";
+}
+
+.icon-shuxian1:before {
+  content: "\e60b";
+}
+
+.icon-xiangyou1:before {
+  content: "\e775";
+}
+
+.icon-right-1-copy:before {
+  content: "\e61f";
 }
 
 .icon-xiangshang1:before {
@@ -156,6 +201,10 @@
   content: "\e613";
 }
 
+.icon-chanpin2-copy:before {
+  content: "\ed02";
+}
+
 .icon-chanpin2:before {
   content: "\ecf8";
 }
@@ -165,6 +214,14 @@
 }
 
 .icon-xiazai-copy:before {
+  content: "\ed07";
+}
+
+.icon-gerenzhongxinnomalcopy-copy-copy:before {
+  content: "\ed08";
+}
+
+.icon-xiazai-copy1:before {
   content: "\ecfb";
 }
 
@@ -196,12 +253,28 @@
   content: "\e730";
 }
 
+.icon-shouye-mendiananli-moren-333333-4444-copy-copy:before {
+  content: "\ed03";
+}
+
+.icon-shouye-mendiananli-xuanzhong-FF9896-FF2723-copy-copy:before {
+  content: "\ed04";
+}
+
 .icon-location-filled:before {
   content: "\e606";
 }
 
 .icon-location:before {
   content: "\e607";
+}
+
+.icon-location-filled-copy:before {
+  content: "\ed05";
+}
+
+.icon-location-copy:before {
+  content: "\ed06";
 }
 
 .icon-zhuye-mian:before {
@@ -212,8 +285,20 @@
   content: "\e60a";
 }
 
+.icon-zhuye-copy:before {
+  content: "\ecff";
+}
+
+.icon-zhuye-mian-copy-copy:before {
+  content: "\ed00";
+}
+
 .icon-chanpin:before {
   content: "\e663";
+}
+
+.icon-chanpin-copy:before {
+  content: "\ed01";
 }
 
 .icon-xiala:before {

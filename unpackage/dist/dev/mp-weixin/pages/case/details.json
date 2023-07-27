@@ -1,0 +1,7 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "s-c-r-o-l-l-n-a-v-b-a-r": "/components/scroll_navbar",
+    "f-i-x-e-d-b-o-t-t-o-m": "/components/bottom"
+  }
+}

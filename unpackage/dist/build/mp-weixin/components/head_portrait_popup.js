@@ -1,0 +1,10 @@
+(global["webpackJsonp"]=global["webpackJsonp"]||[]).push([["components/head_portrait_popup"],{"2e4a":function(n,e,o){"use strict";o.d(e,"b",(function(){return u})),o.d(e,"c",(function(){return i})),o.d(e,"a",(function(){return t}));var t={uPopup:function(){return Promise.all([o.e("common/vendor"),o.e("uni_modules/uview-ui/components/u-popup/u-popup")]).then(o.bind(null,"7f13"))},uGap:function(){return Promise.all([o.e("common/vendor"),o.e("uni_modules/uview-ui/components/u-gap/u-gap")]).then(o.bind(null,"c07a"))}},u=function(){var n=this.$createElement;this._self._c},i=[]},"36fb":function(n,e,o){"use strict";(function(n){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0;var o={props:{show_head_portrait:{type:Boolean,default:!1}},data:function(){return{logo:"https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/jinsiyuma/me_info_logo.png"}},methods:{close:function(){this.$emit("close_head_portrait")},li_item:function(e){n.chooseImage({count:1,sizeType:["original","compressed"],sourceType:[1==e?"album":"camera"],success:function(n){console.log("res",n.tempFilePaths[0])}}),this.close()},item_head:function(){this.close()}}};e.default=o}).call(this,o("543d")["default"])},"6ea3":function(n,e,o){"use strict";o.r(e);var t=o("2e4a"),u=o("b7b1");for(var i in u)["default"].indexOf(i)<0&&function(n){o.d(e,n,(function(){return u[n]}))}(i);o("a2a2");var a=o("f0c5"),c=Object(a["a"])(u["default"],t["b"],t["c"],!1,null,"461c6ca8",null,!1,t["a"],void 0);e["default"]=c.exports},"94d3":function(n,e,o){},a2a2:function(n,e,o){"use strict";var t=o("94d3"),u=o.n(t);u.a},b7b1:function(n,e,o){"use strict";o.r(e);var t=o("36fb"),u=o.n(t);for(var i in t)["default"].indexOf(i)<0&&function(n){o.d(e,n,(function(){return t[n]}))}(i);e["default"]=u.a}}]);
+;(global["webpackJsonp"] = global["webpackJsonp"] || []).push([
+    'components/head_portrait_popup-create-component',
+    {
+        'components/head_portrait_popup-create-component':(function(module, exports, __webpack_require__){
+            __webpack_require__('543d')['createComponent'](__webpack_require__("6ea3"))
+        })
+    },
+    [['components/head_portrait_popup-create-component']]
+]);

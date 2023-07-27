@@ -2,32 +2,34 @@
 	<view class="container">
 		<view class="title">您好，</view>
 		<view class="title">欢迎来到金丝玉玛！</view>
-		<u--form class="form" labelPosition="left" :model="model" :rules="rules" ref="uForm" :errorType="errorType">
-			<view class="item">
-				<picker class="picker" @change="bindPickerChange" :value="index" :range="array">
-					<view class="uni-input">
-						+{{ array[index] }}
-						<i class="iconfont icon-xiala2"></i>
-					</view>
-				</picker>
-				<u-form-item class="input_box" prop="phone" borderBottom>
-					<u--input type="number" maxlength="11" class="input" v-model="model.phone" border="none" placeholder="请输入您的电话"></u--input>
-				</u-form-item>
-			</view>
-			<view class="item">
-				<u-form-item prop="code" borderBottom>
-					<u--input type="number" maxlength="6" v-model="model.code" border="none" placeholder="请输入验证码"></u--input>
-				</u-form-item>
-				<view class="code">
-					<u-toast ref="uToast"></u-toast>
-					<u-code :keepRunning="true" :seconds="seconds" @end="end" @start="start" ref="uCode" @change="codeChange"></u-code>
-					<text @tap="getCode">{{ tips }}</text>
+		<view class="form_content">
+			<u--form labelPosition="left" :model="model" :rules="rules" ref="uForm" :errorType="errorType">
+				<view class="item_box">
+					<picker class="picker" @change="bindPickerChange" :value="index" :range="array">
+						<view class="uni-input">
+							+{{ array[index] }}
+							<i class="iconfont icon-xiala2"></i>
+						</view>
+					</picker>
+					<u-form-item class="input_box" prop="phone">
+						<u--input type="number" maxlength="11" class="input" v-model="model.phone" border="none" placeholder="请输入您的电话"></u--input>
+					</u-form-item>
 				</view>
-			</view>
-			<view class="btn">
-				<u-button class="submit" shape="circle" :throttleTime="200" form-type="submit" @click="submit">登&emsp;录</u-button>
-			</view>
-		</u--form>
+				<view class="item_box">
+					<u-form-item prop="code">
+						<u--input type="number" maxlength="6" v-model="model.code" border="none" placeholder="请输入验证码"></u--input>
+					</u-form-item>
+					<view class="code">
+						<u-toast ref="uToast"></u-toast>
+						<u-code :keepRunning="true" :seconds="seconds" @end="end" @start="start" ref="uCode" @change="codeChange"></u-code>
+						<text @tap="getCode">{{ tips }}</text>
+					</view>
+				</view>
+				<view class="btn">
+					<u-button class="submit" shape="circle" :throttleTime="200" form-type="submit" @click="submit">登&emsp;录</u-button>
+				</view>
+			</u--form>
+		</view>
 		<view class="agreement">
 			登录代表同意
 			<view class="text" @click="user_agreement">《用户协议》</view>
@@ -51,7 +53,7 @@ export default {
 			index: 0,
 			seconds: 60,
 			tips: '',
-			errorType: 'border-bottom',
+			errorType: 'toast',
 			model: {
 				phone: '',
 				code: ''
@@ -84,6 +86,10 @@ export default {
 				}
 			}
 		};
+	},
+	onReady() {
+		//如果需要兼容微信小程序，并且校验规则中含有方法等，只能通过setRules方法设置规则。
+		this.$refs.uForm.setRules(this.rules);
 	},
 	methods: {
 		bindPickerChange(e) {
@@ -125,7 +131,6 @@ export default {
 				title: '登录中...',
 				mask: true
 			});
-
 			this.$refs.uForm
 				.validate()
 				.then((res) => {
@@ -133,7 +138,6 @@ export default {
 				})
 				.catch((errors) => {
 					uni.hideLoading();
-					uni.$u.toast('请输入正确的账号信息');
 				});
 		},
 		user_agreement() {
@@ -160,23 +164,20 @@ export default {
 		color: #313131;
 		line-height: 80rpx;
 	}
-	.form {
+	.form_content {
 		/deep/ .u-form {
 			padding-top: 94rpx;
 		}
-		.item {
-			position: relative;
-			padding-bottom: 10rpx;
+		.item_box {
+			display: flex;
+			align-items: center;
+			border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+			padding: 20rpx 0;
 			.picker {
-				position: absolute;
-				top: 50%;
-				left: 0;
-				width: 160rpx;
-				transform: translateY(-50%);
-				z-index: 8;
 				display: flex;
 				justify-content: center;
 				align-items: center;
+				padding: 10rpx 20rpx;
 				.uni-input {
 					font-size: 34rpx;
 					color: #555;
@@ -191,33 +192,38 @@ export default {
 				}
 			}
 			.input_box {
+				padding: 0 20rpx;
+				flex: 1;
 				.input {
-					padding-left: 160rpx;
+					padding: 0 20rpx;
 				}
 			}
 			.code {
-				position: absolute;
-				top: 50%;
-				right: 50rpx;
-				width: 200rpx;
-				transform: translateY(-50%);
-				z-index: 8;
 				text-align: center;
 				font-size: 30rpx;
 				font-weight: 500;
 				color: #0a2b4e;
 			}
+
+			/deep/ input {
+				padding: 0 20rpx;
+			}
 		}
 		.btn {
 			padding-top: 118rpx;
-			.submit {
-				/deep/ .u-button {
-					width: 600rpx;
-					height: 100rpx;
-					background: #0a2b4e;
-					color: #fff;
-					font-size: 34rpx;
-					font-weight: 500;
+
+			/deep/ button {
+				width: 600rpx;
+				height: 100rpx;
+				background: #0a2b4e;
+				color: #fff;
+				font-size: 34rpx;
+				font-weight: 500;
+				&::after {
+					display: none;
+				}
+				&::before {
+					display: none;
 				}
 			}
 		}
@@ -235,15 +241,12 @@ export default {
 			color: #0a2b4e;
 		}
 	}
-	
+
 	.login_logo {
 		position: fixed;
 		bottom: 0;
 		left: 0;
 		z-index: -1;
-		.cover {
-			
-		}
 	}
 }
 </style>

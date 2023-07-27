@@ -1,0 +1,6 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "f-i-x-e-d-n-a-v-b-a-r": "/components/fixed_navbar"
+  }
+}

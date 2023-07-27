@@ -4,7 +4,7 @@
   "setting": {
     "compileHotReLoad": true
   },
-  "libVersion": "2.10.4",
+  "libVersion": "2.33.0",
   "condition": {
     "miniprogram": {
       "list": [
@@ -46,6 +46,139 @@
         {
           "name": "产品馆详情",
           "pathName": "pages/product/product_details",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "预约量房",
+          "pathName": "pages/product/room",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "预约设计",
+          "pathName": "pages/product/design",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "预约成功",
+          "pathName": "pages/product/success",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "我的预约",
+          "pathName": "pages/product/my_subscribe",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "预约详情",
+          "pathName": "pages/product/my_subscribe_details",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "案例馆",
+          "pathName": "pages/case/case",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "案例详情",
+          "pathName": "pages/case/details",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "我的",
+          "pathName": "pages/me/me",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "个人信息",
+          "pathName": "pages/me/info",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/me/me",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "收藏列表",
+          "pathName": "pages/me/collect_list",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "浏览历史",
+          "pathName": "pages/me/history",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "关于我们",
+          "pathName": "pages/me/about_us",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "品牌列表",
+          "pathName": "pages/brand/brand_list",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "品牌详情",
+          "pathName": "pages/brand/brand_details",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "地图",
+          "pathName": "pages/map/map",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "门店地址列表",
+          "pathName": "pages/map/select_map",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/me/accounts",
+          "query": "",
+          "launchMode": "default",
+          "scene": 1011
+        },
+        {
+          "name": "产品搜索",
+          "pathName": "pages/product/sort_select_search",
           "query": "",
           "launchMode": "default",
           "scene": null

@@ -1,0 +1,44 @@
+.room.data-v-4a999c97 {
+  height: 100vh;
+  padding-bottom: 310rpx;
+}
+.room .form_content.data-v-4a999c97 {
+  padding: 30rpx 44rpx;
+  background: #fff;
+  -webkit-transform: translateY(-24rpx);
+          transform: translateY(-24rpx);
+  border-radius: 24rpx 24rpx 0 0;
+}
+.room .form_content.data-v-4a999c97 .u-input {
+  background: #fff;
+}
+.room .form_content.data-v-4a999c97 input {
+  font-weight: 600;
+  background: #fff;
+}
+.room .form_content.data-v-4a999c97 .placeholderClass {
+  color: #a7a7a7;
+  font-weight: normal;
+}
+.room .form_content .icon-daohang.data-v-4a999c97 {
+  color: #0a2b4e;
+  font-size: 32rpx;
+}
+.room .btn_content.data-v-4a999c97 {
+  position: fixed;
+  bottom: 30rpx;
+  left: 0;
+  width: 100%;
+  z-index: 8;
+  padding: 0 20rpx;
+}
+.room .btn_content .btn.data-v-4a999c97 {
+  margin-bottom: 30rpx;
+}
+.room .btn_content .btn.data-v-4a999c97 button {
+  height: 100rpx;
+  font-size: 28rpx;
+  color: #464646;
+  box-shadow: 0 0 4rpx rgba(0, 0, 0, 0.1);
+}
+

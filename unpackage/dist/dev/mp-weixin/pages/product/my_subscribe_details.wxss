@@ -1,0 +1,108 @@
+
+page {
+	background: #f8f8f8;
+}
+.u-modal__title {
+	font-size: 32rpx !important;
+	font-weight: 600;
+	color: #000000 !important;
+}
+.u-popup .text {
+	padding-top: 30rpx;
+	font-size: 30rpx;
+	font-weight: 500;
+	color: #8c8c8c;
+	line-height: 35rpx;
+}
+
+.my_subscribe_details .my_subscribe_content.data-v-5e12c793 {
+  margin: auto;
+  width: 710rpx;
+  background: #fff;
+  padding: 34rpx;
+  -webkit-transform: translateY(-88rpx);
+          transform: translateY(-88rpx);
+}
+.my_subscribe_details .my_subscribe_content .head.data-v-5e12c793 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.my_subscribe_details .my_subscribe_content .head .title.data-v-5e12c793 {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #464646;
+}
+.my_subscribe_details .my_subscribe_content .head .statuc .text.data-v-5e12c793 {
+  font-size: 28rpx;
+  font-weight: 400;
+  color: #4887fa;
+}
+.my_subscribe_details .my_subscribe_content .head .statuc .cancel.data-v-5e12c793 {
+  color: #a7a7a7;
+}
+.my_subscribe_details .my_subscribe_content .sub_head.data-v-5e12c793 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28rpx 0;
+}
+.my_subscribe_details .my_subscribe_content .sub_head .time.data-v-5e12c793 {
+  height: 28rpx;
+  font-size: 28rpx;
+  font-weight: 400;
+  color: #313131;
+}
+.my_subscribe_details .my_subscribe_content .sub_head .phone.data-v-5e12c793 {
+  padding-left: 20rpx;
+}
+.my_subscribe_details .my_subscribe_content .sub_head .phone .iconfont.data-v-5e12c793 {
+  font-size: 28rpx;
+  color: #0a2b4e;
+  display: inline-block;
+}
+.my_subscribe_details .my_subscribe_content .sub_head .phone .text.data-v-5e12c793 {
+  font-size: 24rpx;
+  color: #313131;
+  padding-left: 6rpx;
+}
+.my_subscribe_details .my_subscribe_content .map_content.data-v-5e12c793 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 28rpx;
+  font-weight: 400;
+  color: #7c7c7c;
+  padding-top: 20rpx;
+}
+.my_subscribe_details .my_subscribe_content .map_content .iconfont.data-v-5e12c793 {
+  display: inline-block;
+  font-size: 32rpx;
+}
+.my_subscribe_details .my_subscribe_content .map_content .icon-shuxian1.data-v-5e12c793 {
+  margin: 0 4rpx;
+}
+.my_subscribe_details .my_subscribe_content .map_content .icon-daohang.data-v-5e12c793 {
+  color: #0a2b4e;
+}
+.my_subscribe_details .btn_box.data-v-5e12c793 {
+  position: fixed;
+  bottom: 80rpx;
+  left: 0;
+  width: 100%;
+  padding: 0 20rpx;
+}
+.my_subscribe_details .btn_box.data-v-5e12c793 button {
+  height: 100rpx;
+  border: 2rpx solid #0a2b4e;
+  font-size: 34rpx;
+  font-weight: 500;
+  color: #0a2b4e;
+}
+.my_subscribe_details .btn_box.data-v-5e12c793 button::after {
+  display: none;
+}
+.my_subscribe_details .btn_box.data-v-5e12c793 button::before {
+  display: none;
+}
+

@@ -1,8 +1,5 @@
-.product_details .u-nav-slot.data-v-344b5269 {
-  display: flex;
-}
-.product_details .u-nav-slot .icon.data-v-344b5269 {
-  padding-right: 12rpx;
+.product_details.data-v-344b5269 {
+  padding-bottom: 180rpx;
 }
 .product_details .indicator-num.data-v-344b5269 {
   padding: 2px 0;
@@ -15,5 +12,78 @@
 .product_details .indicator-num__text.data-v-344b5269 {
   color: #ffffff;
   font-size: 12px;
+}
+.product_details .desc_content.data-v-344b5269 {
+  padding: 0 20rpx;
+}
+.product_details .desc_content .content.data-v-344b5269 {
+  padding: 42rpx 0;
+  border-bottom: 1px solid #eaeaea;
+}
+.product_details .desc_content .content .d_head.data-v-344b5269 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx 0;
+}
+.product_details .desc_content .content .d_head .title.data-v-344b5269 {
+  font-size: 46rpx;
+  font-weight: 600;
+  color: #313131;
+}
+.product_details .desc_content .content .d_head .right.data-v-344b5269 {
+  font-size: 26rpx;
+  color: #a7a7a7;
+}
+.product_details .desc_content .content .d_head .right .lin.data-v-344b5269 {
+  display: inline-block;
+  width: 1px;
+  height: 24rpx;
+  background: #a7a7a7;
+  margin: 0 10rpx;
+}
+.product_details .desc_content .content .desc.data-v-344b5269 {
+  font-size: 32rpx;
+  color: #464646;
+  line-height: 45rpx;
+}
+.product_details .scene.data-v-344b5269 {
+  padding: 30rpx 20rpx;
+}
+.product_details .scene .s_head.data-v-344b5269 {
+  padding: 30rpx 0;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #464646;
+}
+.product_details .scene .s_head .icon.data-v-344b5269 {
+  padding: 0 10rpx;
+}
+.product_details .scene .s_head .text.data-v-344b5269 {
+  font-weight: 400;
+}
+.product_details .scene .spec.data-v-344b5269 {
+  padding-top: 20rpx;
+}
+.product_details .scene .spec .li.data-v-344b5269 {
+  font-size: 24rpx;
+  font-weight: 400;
+  color: #7c7c7c;
+  line-height: 50rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.product_details .scene .spec .li .text.data-v-344b5269 {
+  flex: 2;
+}
+.product_details .scene .spec .li .text.data-v-344b5269:nth-child(2) {
+  flex: 1;
+}
+.product_details .list.data-v-344b5269 {
+  padding: 0 20rpx;
+}
+.product_details .list .cover.data-v-344b5269 {
+  width: 100%;
+  margin-bottom: 20rpx;
 }
 

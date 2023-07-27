@@ -1,0 +1,31 @@
+.contact_us_btn.data-v-11f89c18 {
+  position: fixed;
+  right: 20rpx;
+  bottom: 210rpx;
+  z-index: 10;
+}
+.contact_us_btn .contact_us.data-v-11f89c18 {
+  background-color: transparent;
+  box-shadow: none;
+  border: 0;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+.contact_us_btn .contact_us.data-v-11f89c18::after {
+  display: none;
+}
+.contact_us_btn .icon.data-v-11f89c18 {
+  width: 172rpx;
+  height: 144rpx;
+}
+.scroll_top.data-v-11f89c18 {
+  bottom: 310rpx;
+}
+.details_top.data-v-11f89c18 {
+  bottom: 300rpx;
+}
+.map_top.data-v-11f89c18 {
+  bottom: 60%;
+}
+

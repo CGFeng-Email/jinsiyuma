@@ -8,63 +8,65 @@
   color: #313131;
   line-height: 80rpx;
 }
-.container .form.data-v-24dc7ac2 .u-form {
+.container .form_content.data-v-24dc7ac2 .u-form {
   padding-top: 94rpx;
 }
-.container .form .item.data-v-24dc7ac2 {
-  position: relative;
-  padding-bottom: 10rpx;
+.container .form_content .item_box.data-v-24dc7ac2 {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 20rpx 0;
 }
-.container .form .item .picker.data-v-24dc7ac2 {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 160rpx;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  z-index: 8;
+.container .form_content .item_box .picker.data-v-24dc7ac2 {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 10rpx 20rpx;
 }
-.container .form .item .picker .uni-input.data-v-24dc7ac2 {
+.container .form_content .item_box .picker .uni-input.data-v-24dc7ac2 {
   font-size: 34rpx;
   color: #555;
   font-weight: 500;
 }
-.container .form .item .picker .iconfont.data-v-24dc7ac2 {
+.container .form_content .item_box .picker .iconfont.data-v-24dc7ac2 {
   display: inline-block;
   font-size: 34rpx;
   color: #555;
   font-weight: 500;
   padding-left: 6rpx;
 }
-.container .form .item .input_box .input.data-v-24dc7ac2 {
-  padding-left: 160rpx;
+.container .form_content .item_box .input_box.data-v-24dc7ac2 {
+  padding: 0 20rpx;
+  flex: 1;
 }
-.container .form .item .code.data-v-24dc7ac2 {
-  position: absolute;
-  top: 50%;
-  right: 50rpx;
-  width: 200rpx;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  z-index: 8;
+.container .form_content .item_box .input_box .input.data-v-24dc7ac2 {
+  padding: 0 20rpx;
+}
+.container .form_content .item_box .code.data-v-24dc7ac2 {
   text-align: center;
   font-size: 30rpx;
   font-weight: 500;
   color: #0a2b4e;
 }
-.container .form .btn.data-v-24dc7ac2 {
+.container .form_content .item_box.data-v-24dc7ac2 input {
+  padding: 0 20rpx;
+}
+.container .form_content .btn.data-v-24dc7ac2 {
   padding-top: 118rpx;
 }
-.container .form .btn .submit.data-v-24dc7ac2 .u-button {
+.container .form_content .btn.data-v-24dc7ac2 button {
   width: 600rpx;
   height: 100rpx;
   background: #0a2b4e;
   color: #fff;
   font-size: 34rpx;
   font-weight: 500;
+}
+.container .form_content .btn.data-v-24dc7ac2 button::after {
+  display: none;
+}
+.container .form_content .btn.data-v-24dc7ac2 button::before {
+  display: none;
 }
 .container .agreement.data-v-24dc7ac2 {
   position: fixed;

@@ -1,0 +1,45 @@
+.success.data-v-151e2c0c {
+  padding-top: 104rpx;
+}
+.success .success_content.data-v-151e2c0c {
+  padding: 0 66rpx;
+  text-align: center;
+}
+.success .success_content .cover.data-v-151e2c0c {
+  width: 256rpx;
+}
+.success .success_content .title.data-v-151e2c0c {
+  padding: 22rpx 0;
+  font-size: 40rpx;
+  font-weight: 500;
+  color: #000000;
+}
+.success .success_content .desc.data-v-151e2c0c {
+  margin-top: 10rpx;
+  font-size: 28rpx;
+  font-weight: 400;
+  color: #666666;
+  line-height: 38rpx;
+  text-align: left;
+}
+.success .btn_box.data-v-151e2c0c {
+  position: fixed;
+  bottom: 80rpx;
+  left: 0;
+  width: 100%;
+  padding: 0 20rpx;
+}
+.success .btn_box.data-v-151e2c0c button {
+  height: 100rpx;
+  border: 2rpx solid #0a2b4e;
+  font-size: 34rpx;
+  font-weight: 500;
+  color: #0a2b4e;
+}
+.success .btn_box.data-v-151e2c0c button::after {
+  display: none;
+}
+.success .btn_box.data-v-151e2c0c button::before {
+  display: none;
+}
+

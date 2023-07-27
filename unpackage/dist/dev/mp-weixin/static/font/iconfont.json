@@ -6,6 +6,76 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "2675116",
+      "name": "搜索",
+      "font_class": "sousuo",
+      "unicode": "e632",
+      "unicode_decimal": 58930
+    },
+    {
+      "icon_id": "11372706",
+      "name": "搜索",
+      "font_class": "sousuo1",
+      "unicode": "e8ba",
+      "unicode_decimal": 59578
+    },
+    {
+      "icon_id": "14733",
+      "name": "向上",
+      "font_class": "xiangshang",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "201652",
+      "name": "3.1 下拉",
+      "font_class": "31xiala",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "577395",
+      "name": "向上2",
+      "font_class": "xiangshang2",
+      "unicode": "e76e",
+      "unicode_decimal": 59246
+    },
+    {
+      "icon_id": "672036",
+      "name": "下拉",
+      "font_class": "xiala3",
+      "unicode": "e6ba",
+      "unicode_decimal": 59066
+    },
+    {
+      "icon_id": "6941232",
+      "name": "竖线",
+      "font_class": "shuxian",
+      "unicode": "e638",
+      "unicode_decimal": 58936
+    },
+    {
+      "icon_id": "31331979",
+      "name": "竖线",
+      "font_class": "shuxian1",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "577402",
+      "name": "向右1",
+      "font_class": "xiangyou1",
+      "unicode": "e775",
+      "unicode_decimal": 59253
+    },
+    {
+      "icon_id": "1029274",
+      "name": "右右",
+      "font_class": "right-1-copy",
+      "unicode": "e61f",
+      "unicode_decimal": 58911
+    },
+    {
       "icon_id": "577394",
       "name": "向上1",
       "font_class": "xiangshang1",
@@ -265,6 +335,13 @@
       "unicode_decimal": 58899
     },
     {
+      "icon_id": "36489631",
+      "name": "产品-copy",
+      "font_class": "chanpin2-copy",
+      "unicode": "ed02",
+      "unicode_decimal": 60674
+    },
+    {
       "icon_id": "4858814",
       "name": "产品",
       "font_class": "chanpin2",
@@ -279,9 +356,23 @@
       "unicode_decimal": 59084
     },
     {
-      "icon_id": "35905507",
+      "icon_id": "36489766",
       "name": "个人中心-copy",
       "font_class": "xiazai-copy",
+      "unicode": "ed07",
+      "unicode_decimal": 60679
+    },
+    {
+      "icon_id": "36489772",
+      "name": "个人中心-copy-copy",
+      "font_class": "gerenzhongxinnomalcopy-copy-copy",
+      "unicode": "ed08",
+      "unicode_decimal": 60680
+    },
+    {
+      "icon_id": "35905507",
+      "name": "个人中心-copy",
+      "font_class": "xiazai-copy1",
       "unicode": "ecfb",
       "unicode_decimal": 60667
     },
@@ -335,6 +426,20 @@
       "unicode_decimal": 59184
     },
     {
+      "icon_id": "36489659",
+      "name": "首页-门店案例-默认-333333-44*44-copy-copy",
+      "font_class": "shouye-mendiananli-moren-333333-4444-copy-copy",
+      "unicode": "ed03",
+      "unicode_decimal": 60675
+    },
+    {
+      "icon_id": "36489660",
+      "name": "首页-门店案例-选中-FF9896-FF2723-copy-copy",
+      "font_class": "shouye-mendiananli-xuanzhong-FF9896-FF2723-copy-copy",
+      "unicode": "ed04",
+      "unicode_decimal": 60676
+    },
+    {
       "icon_id": "35247685",
       "name": "location-filled",
       "font_class": "location-filled",
@@ -347,6 +452,20 @@
       "font_class": "location",
       "unicode": "e607",
       "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "36489711",
+      "name": "location-filled-copy",
+      "font_class": "location-filled-copy",
+      "unicode": "ed05",
+      "unicode_decimal": 60677
+    },
+    {
+      "icon_id": "36489713",
+      "name": "location-copy",
+      "font_class": "location-copy",
+      "unicode": "ed06",
+      "unicode_decimal": 60678
     },
     {
       "icon_id": "35348721",
@@ -363,11 +482,32 @@
       "unicode_decimal": 58890
     },
     {
+      "icon_id": "36489492",
+      "name": "主页-copy",
+      "font_class": "zhuye-copy",
+      "unicode": "ecff",
+      "unicode_decimal": 60671
+    },
+    {
+      "icon_id": "36489518",
+      "name": "主页-面-copy-copy",
+      "font_class": "zhuye-mian-copy-copy",
+      "unicode": "ed00",
+      "unicode_decimal": 60672
+    },
+    {
       "icon_id": "20297665",
       "name": "产品",
       "font_class": "chanpin",
       "unicode": "e663",
       "unicode_decimal": 58979
+    },
+    {
+      "icon_id": "36489620",
+      "name": "产品-copy",
+      "font_class": "chanpin-copy",
+      "unicode": "ed01",
+      "unicode_decimal": 60673
     },
     {
       "icon_id": "108587",

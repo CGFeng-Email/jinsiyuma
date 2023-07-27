@@ -1,0 +1,7 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "u-button": "/uni_modules/uview-ui/components/u-button/u-button",
+    "f-i-x-e-d-n-a-v-b-a-r": "/components/fixed_navbar"
+  }
+}

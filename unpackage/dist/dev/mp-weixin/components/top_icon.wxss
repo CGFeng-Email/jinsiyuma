@@ -1,0 +1,15 @@
+.top_icon.data-v-65446bde {
+  position: fixed;
+  bottom: 170rpx;
+  right: 44rpx;
+  z-index: 10;
+  text-align: center;
+}
+.top_icon .icon.data-v-65446bde {
+  width: 128rpx;
+  height: 128rpx;
+}
+.top_right.data-v-65446bde {
+  right: 3rpx;
+}
+

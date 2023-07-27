@@ -1,5 +1,20 @@
 {
-  "dependencies": {
-    "@vant/weapp": "^1.10.20"
-  }
+    "id": "lj-share",
+    "name": "微信小程序全局分享功能 ",
+    "displayName": "微信小程序全局分享功能 ",
+    "version": "1.0",
+    "description": "实现微信小程序的全局 转发给好友/分享到朋友圈 的功能。主要使用 Vue.js 的 全局混入 概念",
+    "keywords": [
+        "小程序",
+        "组件",
+        "前端组件",
+        "分享",
+        "朋友圈"
+    ],
+    "dcloudext": {
+        "category": [
+            "前端组件",
+            "通用组件"
+        ]
+    }
 }

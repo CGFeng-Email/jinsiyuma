@@ -22,16 +22,16 @@ page {
   width: 100%;
   height: 100%;
 }
-.bg .cover .content.data-v-b237504c {
-  position: absolute;
-  bottom: 60rpx;
+.bg .content.data-v-b237504c {
+  position: fixed;
+  bottom: 40rpx;
   left: 0;
   width: 100%;
   text-align: center;
   color: #fff;
   z-index: 11;
 }
-.bg .cover .content .btn.data-v-b237504c {
+.bg .content .btn.data-v-b237504c {
   width: 600rpx;
   height: 100rpx;
   line-height: 100rpx;
@@ -41,11 +41,11 @@ page {
   margin: auto;
   border-radius: 45rpx;
 }
-.bg .cover .content .open.data-v-b237504c {
+.bg .content .open.data-v-b237504c {
   font-size: 28rpx;
   padding: 32rpx 0;
 }
-.bg .cover .content .agreement.data-v-b237504c {
+.bg .content .agreement.data-v-b237504c {
   font-size: 24rpx;
   padding: 30rpx;
   margin-top: 10rpx;

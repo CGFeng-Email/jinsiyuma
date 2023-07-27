@@ -1,0 +1,19 @@
+.u-nav-slot.data-v-b980a0d2 {
+  display: flex;
+}
+.u-nav-slot .icon.data-v-b980a0d2 {
+  padding-right: 12rpx;
+}
+.u-nav-slot .iconfont.data-v-b980a0d2 {
+  font-size: 42rpx;
+  color: #000;
+  font-weight: 600;
+  padding-right: 42rpx;
+}
+.u-nav-slot .icon-zhuye-mian.data-v-b980a0d2 {
+  font-weight: 500;
+}
+.u-nav-slot .active.data-v-b980a0d2 {
+  color: #fff;
+}
+

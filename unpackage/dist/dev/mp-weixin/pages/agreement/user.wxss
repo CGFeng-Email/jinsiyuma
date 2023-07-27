@@ -1,9 +1,16 @@
 .content.data-v-e5ac6d2e {
-  padding: 14rpx 14rpx 60rpx;
-  font-size: 28rpx;
-  line-height: 42rpx;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  word-break: break-all;
+  padding: 0 20rpx;
+  padding-bottom: 40rpx;
+  font-size: 26rpx;
+  color: '#31313';
+  line-height: 38rpx;
+}
+.title.data-v-e5ac6d2e {
+  padding: 20rpx 0;
+  font-weight: 600;
+}
+.text.data-v-e5ac6d2e {
+  line-height: 44rpx;
+  text-indent: 2em;
 }
 

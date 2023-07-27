@@ -1,0 +1,59 @@
+.room.data-v-23053d18 {
+  height: 100vh;
+  padding-bottom: 310rpx;
+}
+.room .form_content.data-v-23053d18 {
+  padding: 30rpx 44rpx;
+  background: #fff;
+  -webkit-transform: translateY(-24rpx);
+          transform: translateY(-24rpx);
+  border-radius: 24rpx 24rpx 0 0;
+}
+.room .form_content .get_mapinfo.data-v-23053d18 {
+  padding-left: 150rpx;
+}
+.room .form_content .get_mapinfo .g_content.data-v-23053d18 {
+  display: inline-block;
+  display: flex;
+  align-items: center;
+  padding: 10rpx;
+}
+.room .form_content .get_mapinfo .g_content .iconfont.data-v-23053d18 {
+  font-size: 32rpx;
+  color: #28c445;
+}
+.room .form_content .get_mapinfo .g_content .text.data-v-23053d18 {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #c0c4cc;
+  padding-left: 14rpx;
+}
+.room .form_content.data-v-23053d18 .u-input {
+  background: #fff;
+}
+.room .form_content.data-v-23053d18 input {
+  font-weight: 600;
+  background: #fff;
+}
+.room .form_content.data-v-23053d18 .placeholderClass {
+  color: #a7a7a7;
+  font-weight: normal;
+}
+.room .btn_content.data-v-23053d18 {
+  position: fixed;
+  bottom: 30rpx;
+  left: 0;
+  width: 100%;
+  z-index: 8;
+  padding: 0 20rpx;
+}
+.room .btn_content .btn.data-v-23053d18 {
+  margin-bottom: 30rpx;
+}
+.room .btn_content .btn.data-v-23053d18 button {
+  height: 100rpx;
+  font-size: 28rpx;
+  color: #464646;
+  box-shadow: 0 0 4rpx rgba(0, 0, 0, 0.1);
+}
+

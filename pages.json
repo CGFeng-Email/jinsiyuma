@@ -23,14 +23,16 @@
 			"path": "pages/agreement/user",
 			"style": {
 				"navigationBarTitleText": "用户协议",
-				"backgroundColor": "#fff"
+				"backgroundColor": "#fff",
+				"navigationBarBackgroundColor": "#fff"
 			}
 		},
 		{
 			"path": "pages/agreement/privacy",
 			"style": {
 				"navigationBarTitleText": "隐私协议",
-				"backgroundColor": "#fff"
+				"backgroundColor": "#fff",
+				"navigationBarBackgroundColor": "#fff"
 			}
 		},
 		{
@@ -38,7 +40,7 @@
 			"style": {
 				"navigationStyle": "custom"
 			}
-		}, 
+		},
 		{
 			"path": "pages/product/product_list",
 			"style": {
@@ -51,9 +53,51 @@
 			"style": {
 				"navigationStyle": "custom"
 			}
+		}, 
+		{
+			"path": "pages/product/sort_select_search",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}, 
+		{
+			"path": "pages/product/room",
+			"style": {
+				"navigationStyle": "custom"
+			}
 		},
 		{
+			"path": "pages/product/design",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/product/success",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/product/my_subscribe",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}, 
+		{
+			"path": "pages/product/my_subscribe_details",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}, 
+		{
 			"path": "pages/case/case",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/case/details",
 			"style": {
 				"navigationStyle": "custom"
 			}
@@ -65,13 +109,74 @@
 			}
 		},
 		{
+			"path": "pages/map/select_map",
+			"style": {
+				"navigationBarTitleText": "地区门店",
+				"backgroundColor": "#f8f8f8",
+				"backgroundColorTop": "#fff",
+				"navigationBarBackgroundColor": "#fff"
+			}
+		},
+		{
 			"path": "pages/me/me",
 			"style": {
 				"navigationStyle": "custom"
 			}
 		},
 		{
+			"path": "pages/me/info",
+			"style": {
+				"navigationBarTitleText": "个人信息",
+				"navigationBarBackgroundColor": "#fff"
+			}
+		},
+		{
+			"path": "pages/me/collect_list",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/me/history",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/me/about_us",
+			"style": {
+				"navigationBarTitleText": "关于我们",
+				"backgroundColorTop": "#fff",
+				"backgroundColor": "#fff",
+				"navigationBarBackgroundColor": "#fff"
+			}
+		},
+		{
+			"path": "pages/me/accounts",
+			"style": {
+				"navigationBarTitleText": "关注公众号",
+				"backgroundColorTop": "#fff",
+				"backgroundColor": "#fff",
+				"navigationBarBackgroundColor": "#fff"
+			}
+		},
+		{
 			"path": "pages/search/search",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/brand/brand_list",
+			"style": {
+				"navigationBarTitleText": "品牌",
+				"navigationBarBackgroundColor": "#fff",
+				"backgroundColor": "#fff",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
+			"path": "pages/brand/brand_details",
 			"style": {
 				"navigationStyle": "custom"
 			}
@@ -117,4 +222,5 @@
 	},
 	"autoscan": true,
 	"uniIdRouter": {}
+	
 }
