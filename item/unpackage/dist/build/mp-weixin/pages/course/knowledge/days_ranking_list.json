@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "登录天数活跃榜",
+  "navigationBarBackgroundColor": "#fff",
+  "usingComponents": {
+    "u-sticky": "/uni_modules/uview-ui/components/u-sticky/u-sticky",
+    "u-tabs": "/uni_modules/uview-ui/components/u-tabs/u-tabs",
+    "u-transition": "/uni_modules/uview-ui/components/u-transition/u-transition",
+    "u-loading-icon": "/uni_modules/uview-ui/components/u-loading-icon/u-loading-icon"
+  }
+}

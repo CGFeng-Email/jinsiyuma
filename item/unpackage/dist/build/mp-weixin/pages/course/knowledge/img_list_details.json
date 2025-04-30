@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "照片集详情",
+  "navigationBarBackgroundColor": "#fff",
+  "usingComponents": {
+    "u-transition": "/uni_modules/uview-ui/components/u-transition/u-transition"
+  }
+}

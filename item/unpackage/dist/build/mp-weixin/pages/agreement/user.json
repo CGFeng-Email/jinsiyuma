@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "用户协议",
+  "backgroundColor": "#fff",
+  "navigationBarBackgroundColor": "#fff",
+  "usingComponents": {
+    "u-parse": "/uni_modules/uview-ui/components/u-parse/u-parse"
+  }
+}

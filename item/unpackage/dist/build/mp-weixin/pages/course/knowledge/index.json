@@ -1,0 +1,15 @@
+{
+  "navigationBarTitleText": "商学院",
+  "navigationBarBackgroundColor": "#fff",
+  "usingComponents": {
+    "u-sticky": "/uni_modules/uview-ui/components/u-sticky/u-sticky",
+    "u-search": "/uni_modules/uview-ui/components/u-search/u-search",
+    "u-tabs": "/uni_modules/uview-ui/components/u-tabs/u-tabs",
+    "c-o-l-l-e-g-e": "/pages/course/knowledge/college",
+    "r-o-o-k-i-e": "/pages/course/knowledge/rookie",
+    "p-u-b-l-i-c": "/pages/course/knowledge/public",
+    "c-h-e-e-r": "/pages/course/knowledge/cheer",
+    "d-r-i-l-l": "/pages/course/knowledge/drill",
+    "m-e": "/pages/course/knowledge/me"
+  }
+}

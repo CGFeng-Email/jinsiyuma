@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "产品款式",
+  "navigationBarBackgroundColor": "#fff",
+  "usingComponents": {
+    "u-transition": "/uni_modules/uview-ui/components/u-transition/u-transition",
+    "u-count-to": "/uni_modules/uview-ui/components/u-count-to/u-count-to",
+    "u-loadmore": "/uni_modules/uview-ui/components/u-loadmore/u-loadmore",
+    "s-e-r-v-i-c-e_-e-m-p-t-y": "/components/service_empty"
+  }
+}

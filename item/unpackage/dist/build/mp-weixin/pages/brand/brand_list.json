@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "品牌",
+  "navigationBarBackgroundColor": "#fff",
+  "backgroundColor": "#fff",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "u-loadmore": "/uni_modules/uview-ui/components/u-loadmore/u-loadmore",
+    "s-e-r-v-i-c-e_-e-m-p-t-y": "/components/service_empty"
+  }
+}

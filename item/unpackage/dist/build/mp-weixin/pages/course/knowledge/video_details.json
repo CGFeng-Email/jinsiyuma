@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "课程详情",
+  "navigationBarBackgroundColor": "#fff",
+  "usingComponents": {
+    "u-sticky": "/uni_modules/uview-ui/components/u-sticky/u-sticky",
+    "u-button": "/uni_modules/uview-ui/components/u-button/u-button",
+    "u-loadmore": "/uni_modules/uview-ui/components/u-loadmore/u-loadmore",
+    "u-tabs": "/uni_modules/uview-ui/components/u-tabs/u-tabs",
+    "u-transition": "/uni_modules/uview-ui/components/u-transition/u-transition",
+    "u--input": "/uni_modules/uview-ui/components/u--input/u--input",
+    "e-m-p-t-y": "/components/empty"
+  }
+}

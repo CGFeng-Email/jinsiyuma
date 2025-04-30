@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "搜索",
+  "navigationBarBackgroundColor": "#fff",
+  "usingComponents": {
+    "u-sticky": "/uni_modules/uview-ui/components/u-sticky/u-sticky",
+    "u-search": "/uni_modules/uview-ui/components/u-search/u-search",
+    "u-transition": "/uni_modules/uview-ui/components/u-transition/u-transition",
+    "u-empty": "/uni_modules/uview-ui/components/u-empty/u-empty"
+  }
+}
