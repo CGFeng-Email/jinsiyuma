@@ -1,24 +1,24 @@
 <template>
 	<view class="container">
 		<u-loading-page :loading="loading" loading-text="快速加载中..." bg-color="#f8f8f8" fontSize="14" iconSize="36" color="#999" loadingColor="#999"></u-loading-page>
+		<u-navbar title="个人中心" :titleStyle="navbarStyle" leftIcon=" " placeholder bgColor="transparent"></u-navbar>
 		<view class="me">
-			<u-navbar title="个人中心" :titleStyle="navbarStyle" leftIcon=" " placeholder bgColor="transparent"></u-navbar>
 			<view class="cover_box banner">
 				<image class="cover" :src="banner" mode="widthFix"></image>
 			</view>
 			<view class="user_content">
 				<view class="left">
-					<view class="cover_box box-shadow" @click="open_head_portrait">
-						<image class="cover" :src="head_portrait" mode="widthFix"></image>
-					</view>
-					<view class="user_info" @click="open_info">
-						<view class="title">
-							{{ title }}
-						</view>
+					<button class="cover_box box-shadow head_portrait" open-type="chooseAvatar" @chooseavatar="onChooseAvatar">
+						<image class="cover" :src="head_portrait != '' ? head_portrait : '/static/img/head_portrait.png'"></image>
+					</button>
+					<view class="user_info">
+						<input type="nickname" class="title weui-input" :value="user_name ? user_name : '金丝玉玛用户'" @blur="user_name_blur" />
 						<view class="hint">
 							{{ hint }}
 						</view>
 					</view>
+					<!-- 未登录时起到一个遮罩的左右 -->
+					<view class="hide_shadow" v-if="hide_shadow" @click="login_modal = true"></view>
 				</view>
 				<view class="right" @click="open_info">
 					<i class="iconfont icon-right-1-copy"></i>
@@ -44,12 +44,12 @@
 			<view class="service_list">
 				<view class="item subscribe_item border-radius" @click="open_subscribe_list">
 					<view class="text">我的预约</view>
-					<image class="cover" :src="subscribe_icon" mode="widthFix"></image>
+					<image class="cover" :src="subscribe_banner" mode="widthFix"></image>
 				</view>
 
 				<view class="item service_item border-radius">
 					<view class="text">联系客服</view>
-					<image class="cover" :src="service_icon" mode="widthFix"></image>
+					<image class="cover" src="/static/img/service_icon.png" mode="widthFix"></image>
 					<button class="item_btn" open-type="contact" send-message-title="金丝玉玛" show-message-card></button>
 				</view>
 			</view>
@@ -61,52 +61,67 @@
 						<text class="text">关于我们</text>
 					</view>
 				</view>
+				<view class="li border-radius box-shadow" @click="open_map">
+					<view class="left">
+						<i class="iconfont icon-location-filled"></i>
+						<text class="text">门店地址</text>
+					</view>
+				</view>
 				<view class="li border-radius box-shadow" @click="open_accounts">
 					<view class="left">
-						<image class="cover" :src="me_logo" mode="widthFix"></image>
-						<text class="text">金丝玉玛公众号</text>
+						<image class="cover" :src="official_accounts_logo" mode="widthFix"></image>
+						<text class="text">{{ official_accounts_text }}</text>
 					</view>
 					<view class="right">
 						<text class="desc">即刻关注</text>
 					</view>
 				</view>
 			</view>
-			<!-- 头像上传弹窗 -->
-			<HEADPORTRAIT :show_head_portrait="show_head_portrait" @close_head_portrait="close_head_portrait"></HEADPORTRAIT>
 			<!-- 底部栏 -->
 			<TABBAR :tabbar_bg="true" :tabs_index="4"></TABBAR>
+			<!-- 登录模态框 -->
+			<LOGINMODAL :show="login_modal" @loginModalCancel="loginModalCancel"></LOGINMODAL>
 		</view>
 	</view>
 </template>
 <script>
-import HEADPORTRAIT from '@/components/head_portrait_popup.vue';
 export default {
-	components: { HEADPORTRAIT },
 	data() {
 		return {
+			banner: 'https://jsym.kinsyomacz.com/resource/img/me_banner.png',
+			subscribe_banner: 'https://jsym.kinsyomacz.com/resource/img/subscribe_icon.png',
 			loading: true,
 			navbarStyle: {
 				fontSize: '14px',
 				color: '#313131',
 				fontWeight: 600
 			},
-			banner: 'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/jinsiyuma/me_banner.png',
-			head_portrait: 'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/jinsiyuma/head_portrait.png',
-			subscribe_icon: 'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/jinsiyuma/subscribe_icon.png',
-			service_icon: 'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/jinsiyuma/service_icon.png',
-			me_logo: 'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/jinsiyuma/me_logo.png',
-			title: '一只小蘑菇',
+			head_portrait: '', // 头像
+			user_name: '', // 昵称
+			official_accounts_logo: '', // 公众号logo
+			official_accounts_text: '', // 公众号名称
 			hint: '尊敬的用户，下午好！',
-			show_head_portrait: false
+			login_modal: false, // 登录模态框
+			hide_shadow: false // 未登录时起到一个遮罩的左右
 		};
 	},
 	async onLoad() {
-		setTimeout(() => {
-			this.loading = false
-		}, 500)
+		uni.hideTabBar(); // 隐藏原生tabbar
+		this.initial();
+	},
+	async onShow() {
+		await this.get_userData();
+		this.loading = false;
 	},
 	methods: {
+		initial() {
+			const app = getApp();
+			this.official_accounts_logo = app.globalData.official_accounts_logo;
+			this.official_accounts_text = app.globalData.official_accounts_text;
+		},
 		open_tabs(i) {
+			const user_id = uni.getStorageSync('user_id');
+			if (!user_id) return (this.login_modal = true);
 			if (i == 0) {
 				uni.navigateTo({
 					url: '/pages/me/collect_list?tabs_index=0'
@@ -121,13 +136,10 @@ export default {
 				});
 			}
 		},
-		open_head_portrait() {
-			this.show_head_portrait = true;
-		},
-		close_head_portrait() {
-			this.show_head_portrait = false;
-		},
+		// 跳转个人信息页面
 		open_info() {
+			const user_id = uni.getStorageSync('user_id');
+			if (!user_id) return (this.login_modal = true);
 			uni.navigateTo({
 				url: '/pages/me/info'
 			});
@@ -139,14 +151,76 @@ export default {
 		},
 		// 我的预约
 		open_subscribe_list() {
+			const user_id = uni.getStorageSync('user_id');
+			if (!user_id) return (this.login_modal = true);
 			uni.navigateTo({
 				url: '/pages/product/my_subscribe'
 			});
 		},
+		// 跳转公众号
 		open_accounts() {
 			uni.navigateTo({
 				url: '/pages/me/accounts'
-			})
+			});
+		},
+		// 上传用户头像
+		async onChooseAvatar(e) {
+			uni.showLoading({
+				title: '加载中'
+			});
+			console.log('上传头像回调', e);
+			// 处理成base64
+			const base_url = 'data:image/jpeg;base64,' + wx.getFileSystemManager().readFileSync(e.detail.avatarUrl, 'base64');
+			// 上传头像
+			const res = await this.$request.post('/upload/image', {
+				file: base_url
+			});
+			console.log('上传头像', res);
+			// 保存头像
+			const res2 = await this.$request.post2('/user/saveUserInfo', {
+				avatar: res.url
+			});
+			console.log('保存头像', res2);
+			if (res2.code == 1 || res2.msg == '保存成功') {
+				this.head_portrait = e.detail.avatarUrl;
+				return uni.hideLoading();
+			} else {
+				uni.hideLoading();
+				uni.showToast({
+					title: '服务器发生错误，请联系管理员',
+					duration: 2000
+				});
+			}
+		},
+		// 用户昵称 离开回调
+		user_name_blur(e) {
+			this.$request.post('/user/saveUserInfo', {
+				real_name: e.detail.value
+			});
+		},
+		// 获取用户信息
+		async get_userData() {
+			const user_id = uni.getStorageSync('user_id');
+			if (!user_id) {
+				this.head_portrait = '';
+				this.user_name = '';
+				this.hide_shadow = true;
+				return;
+			}
+			this.hide_shadow = false;
+			const res = await this.$request.post('/user/getUserInfo');
+			console.log('获取头像', res);
+			this.head_portrait = res.avatar;
+			this.user_name = res.real_name;
+		},
+		// 关闭登录模态框
+		loginModalCancel() {
+			this.login_modal = false;
+		},
+		open_map() {
+			uni.navigateTo({
+				url: '/pages/map/map'
+			});
 		}
 	}
 };
@@ -169,13 +243,34 @@ export default {
 		.left {
 			display: flex;
 			align-items: center;
+			position: relative;
 			.cover_box {
 				background: none;
 				border-radius: 50rpx;
 				overflow: hidden;
+				box-shadow: none;
+				outline: none;
+				&::after {
+					display: none;
+				}
 				.cover {
 					width: 122rpx;
 					height: 122rpx;
+					border-radius: 50%;
+				}
+			}
+			.head_portrait {
+				padding: 0 !important;
+				margin: 0 !important;
+				width: 122rpx;
+				height: 122rpx;
+				display: block;
+				flex: none;
+				&::after {
+					display: none;
+				}
+				&::before {
+					display: none;
 				}
 			}
 			.user_info {
@@ -193,6 +288,14 @@ export default {
 					color: #464646;
 					padding-top: 10rpx;
 				}
+			}
+			.hide_shadow {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				z-index: 99999;
 			}
 		}
 		.right {
@@ -311,6 +414,10 @@ export default {
 					height: 68rpx;
 					border-radius: 50%;
 					overflow: hidden;
+				}
+
+				.icon-location-filled {
+					color: #0a2b4e;
 				}
 			}
 			.right {

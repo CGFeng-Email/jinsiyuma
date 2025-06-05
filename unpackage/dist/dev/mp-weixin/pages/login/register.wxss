@@ -1,15 +1,70 @@
+
+.u-input__content input {
+	height: 30px !important;
+	line-height: 30px !important;
+	padding: 0 10px;
+}
+
 .container.data-v-24dc7ac2 {
-  padding: 238rpx 74rpx 84rpx;
+  padding: 300rpx 60rpx 84rpx;
+}
+.container .bg.data-v-24dc7ac2 {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: -1;
+}
+.container .bg .cover.data-v-24dc7ac2 {
+  width: 100%;
+  height: 100%;
 }
 .container .title.data-v-24dc7ac2 {
-  font-size: 50rpx;
+  font-size: 46rpx;
   font-family: Inter-Medium, Inter;
-  font-weight: 500;
+  font-weight: 600;
   color: #313131;
   line-height: 80rpx;
 }
+.container .title2.data-v-24dc7ac2 {
+  font-size: 46rpx;
+  font-weight: 600;
+  color: #102a4b;
+}
+.container .title3.data-v-24dc7ac2 {
+  font-size: 38rpx;
+  font-weight: 500;
+  color: #102a4b;
+  margin: 18rpx 0;
+}
+.container .form_content.data-v-24dc7ac2 {
+  margin-top: 50rpx;
+  box-shadow: 0px 0 20px rgba(16, 42, 75, 0.6);
+  border-radius: 40rpx;
+  background: #fff;
+  overflow: hidden;
+  padding: 30rpx 20rpx;
+}
+.container .form_content .form_tabs.data-v-24dc7ac2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .form_content .form_tabs .tabs.data-v-24dc7ac2 {
+  text-align: center;
+  flex: 1;
+  font-size: 32rpx;
+  color: #333;
+  padding: 22rpx 0;
+  border-radius: 50rpx;
+}
+.container .form_content .form_tabs .active.data-v-24dc7ac2 {
+  background: #0a2b4e;
+  color: #fff;
+}
 .container .form_content.data-v-24dc7ac2 .u-form {
-  padding-top: 94rpx;
+  padding: 30rpx 10rpx;
 }
 .container .form_content .item_box.data-v-24dc7ac2 {
   display: flex;
@@ -21,7 +76,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10rpx 20rpx;
+  padding: 10rpx 0;
 }
 .container .form_content .item_box .picker .uni-input.data-v-24dc7ac2 {
   font-size: 34rpx;
@@ -36,26 +91,43 @@
   padding-left: 6rpx;
 }
 .container .form_content .item_box .input_box.data-v-24dc7ac2 {
-  padding: 0 20rpx;
+  padding: 0;
   flex: 1;
 }
 .container .form_content .item_box .input_box .input.data-v-24dc7ac2 {
-  padding: 0 20rpx;
+  padding: 0 40rpx;
+}
+.container .form_content .item_box .input_box .input.data-v-24dc7ac2 input {
+  height: 44px;
 }
 .container .form_content .item_box .code.data-v-24dc7ac2 {
-  text-align: center;
+  text-align: right;
   font-size: 30rpx;
   font-weight: 500;
   color: #0a2b4e;
+  flex: none;
 }
 .container .form_content .item_box.data-v-24dc7ac2 input {
   padding: 0 20rpx;
 }
+.container .form_content .item_input .label.data-v-24dc7ac2 {
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  font-weight: normal;
+  color: #666666;
+}
+.container .form_content .item_input .label .text.data-v-24dc7ac2 {
+  padding-left: 8rpx;
+}
+.container .form_content .item_input .label .star.data-v-24dc7ac2 {
+  color: #ff0000;
+}
 .container .form_content .btn.data-v-24dc7ac2 {
-  padding-top: 118rpx;
+  padding-top: 30rpx;
 }
 .container .form_content .btn.data-v-24dc7ac2 button {
-  width: 600rpx;
+  width: 100%;
   height: 100rpx;
   background: #0a2b4e;
   color: #fff;
@@ -76,15 +148,45 @@
   text-align: center;
   font-size: 24rpx;
   color: #888888;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .container .agreement .text.data-v-24dc7ac2 {
   display: inline-block;
   color: #0a2b4e;
 }
-.container .login_logo.data-v-24dc7ac2 {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
+.container .agreement .checkbox_radios.data-v-24dc7ac2 {
+  box-sizing: border-box;
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .agreement .checkbox_radios .icon_check.data-v-24dc7ac2 {
+  width: 12px;
+  height: 12px;
+  border-radius: 50rpx;
+  border: 1px solid #fff;
+}
+.container .agreement .checkbox_img.data-v-24dc7ac2 {
+  width: 16px;
+  height: 16px;
+  border-radius: 50rpx;
+  overflow: hidden;
+  margin-right: 4px;
+}
+.container .new.data-v-24dc7ac2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 28rpx;
+  font-weight: normal;
+  color: #666666;
+}
+.container .new .text.data-v-24dc7ac2 {
+  padding: 8rpx 0;
 }
 

@@ -1,3 +1,25 @@
+
+.popup_content .content {
+	font-size: 30rpx;
+	font-weight: 500;
+	color: #8c8c8c;
+	line-height: 43rpx;
+	text-align: center;
+}
+.u-radio-group {
+	margin-top: 20rpx;
+}
+.u-radio-group .u-radio {
+	padding-right: 30rpx;
+}
+
+.map .u-nav-slot.data-v-0b31f540 {
+  display: flex;
+  align-items: center;
+}
+.map .u-nav-slot .iconfont.data-v-0b31f540 {
+  padding: 6rpx 20rpx 6rpx 0;
+}
 .map .map_content.data-v-0b31f540 {
   width: 100%;
   height: 100vh;
@@ -49,7 +71,7 @@
 }
 .map .bottom_content.data-v-0b31f540 {
   position: fixed;
-  bottom: 0;
+  bottom: 60rpx;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
@@ -118,12 +140,6 @@
 .map .bottom_content .to_content .to.data-v-0b31f540 {
   width: 204rpx;
   height: 124rpx;
-}
-.map .opoup_content.data-v-0b31f540 {
-  font-size: 30rpx;
-  font-weight: 500;
-  color: #8c8c8c;
-  line-height: 43rpx;
 }
 .map .popup.data-v-0b31f540 .u-modal__title {
   font-weight: 500;

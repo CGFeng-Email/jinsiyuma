@@ -1,8 +1,5 @@
 <template>
 	<view class="container">
-		<u-loading-page :loading="loading" loading-text="快速加载中..." bg-color="#f8f8f8" fontSize="14" iconSize="36" color="#999" loadingColor="#999"></u-loading-page>
-		<!-- 底部栏 -->
-		<TABBAR :tabbar_bg="tabbar_bg" :tabs_index="1"></TABBAR>
 		<view class="product_content">
 			<!-- 导航栏 -->
 			<u-navbar
@@ -15,64 +12,73 @@
 				<view class="u-nav-slot" slot="left">
 					<view class="nav_left_icon" :class="scroll_number >= 44 ? 'scroll_nav_search' : ''">
 						<i class="iconfont icon-sousuo"></i>
+						<text class="text">搜索</text>
 					</view>
 				</view>
 			</u-navbar>
-			<!-- 背景 -->
-			<view class="banner_bg">
-				<u--image class="bg" :src="product_bg" width="100%" height="100vh"></u--image>
-			</view>
+			<u-transition :show="true">
+				<!-- 背景 -->
+				<view class="banner_bg">
+					<u--image class="bg" :src="product_bg" width="100%" height="100vh"></u--image>
+				</view>
+			</u-transition>
 			<!-- 轮播 -->
 			<view class="product_banner_content">
-				<view class="banner_content">
-					<view class="top_content">
-						<view class="banner_title">金丝玉玛力荐TOP5</view>
-						<!-- <image class="btn" :src="search_btn" @click="open_search"></image> -->
-					</view>
-					<view class="custom_dot">
-						<uni-swiper-dot
-							class="uni-swiper-dot-box"
-							:dots-styles="dotsStyles"
-							:info="swiper_list"
+				<u-transition :show="true">
+					<view class="banner_content">
+						<view class="top_content">
+							<view class="banner_title">
+								<text class="text" v-if="title">{{ title }}</text>
+								<text class="text" v-if="list.length > 0">{{ list.length }}</text>
+							</view>
+						</view>
+						<view class="custom_dot">
+							<uni-swiper-dot
+								class="uni-swiper-dot-box"
+								:dots-styles="dotsStyles"
+								:info="list"
+								:current="swiper_current"
+								mode="round"
+								field="content"
+							></uni-swiper-dot>
+						</view>
+						<swiper
+							class="swiper_content"
+							circular
+							:autoplay="true"
+							previous-margin="30px"
+							next-margin="30px"
+							:interva="3000"
+							easing-function="linear"
 							:current="swiper_current"
-							mode="round"
-							field="content"
-						></uni-swiper-dot>
-					</view>
-					<swiper
-						class="swiper_content"
-						circular
-						:autoplay="true"
-						previous-margin="30px"
-						next-margin="30px"
-						:interva="3000"
-						easing-function="linear"
-						:current="swiper_current"
-						@change="change_swiper"
-					>
-						<swiper-item v-for="(item, index) in swiper_list" :key="index">
-							<view class="swiper_item" :class="[swiper_current == index ? 'swiper_item_active' : '']">
-								<image class="cover border-radius" :src="item.image_cover"></image>
-								<view class="bottom_content">
-									<view class="btn_box" @click="open_product_details">
-										<u--image class="btn" :src="item.image_icon1" width="132rpx" height="132rpx" radius="4"></u--image>
-									</view>
-									<view class="btn_box" @click="open_product_details">
-										<u--image class="btn" :src="item.image_icon2" width="132rpx" height="132rpx" radius="4"></u--image>
+							@change="change_swiper"
+						>
+							<swiper-item v-for="(item, index) in list" :key="index">
+								<view class="swiper_item" :class="[swiper_current == index ? 'swiper_item_active' : '']">
+									<image class="cover border-radius" :src="item.image" @click="open_product_details(item.product_id)"></image>
+									<view class="bottom_content">
+										<view class="btn_box" @click="open_product_details(item.product_id)">
+											<u--image class="btn" :src="item.sub_image1" width="132rpx" height="132rpx" radius="4"></u--image>
+										</view>
+										<view class="btn_box" @click="open_product_details(item.product_id)">
+											<u--image class="btn" :src="item.sub_image2" width="132rpx" height="132rpx" radius="4"></u--image>
+										</view>
 									</view>
 								</view>
-							</view>
-						</swiper-item>
-					</swiper>
-					<view class="up_content">
-						<image class="btn_icon animation_up" src="/static/img/more_icon.png" mode="aspectFit"></image>
-						<image class="btn" :src="product_btn" mode="aspectFit" @click="up_scroll"></image>
+							</swiper-item>
+						</swiper>
+						<view class="up_content">
+							<image class="btn_icon animation_up" src="/static/img/more_icon.png" mode="aspectFit"></image>
+							<image class="btn" src="/static/img/product_btn.png" mode="aspectFit" @click="up_scroll"></image>
+						</view>
 					</view>
-				</view>
+				</u-transition>
 			</view>
 		</view>
 		<!-- 规格列表 -->
-		<SORTSELECT></SORTSELECT>
+		<SORTSELECT :sort_data="sort_data" :size_tabs_index="size_tabs_index" @selectItem="selectItem" @sizeTabsIndex="sizeTabsIndex"></SORTSELECT>
+		<!-- 底部栏 -->
+		<TABBAR :tabbar_bg="tabbar_bg" :tabs_index="1"></TABBAR>
 	</view>
 </template>
 
@@ -100,54 +106,30 @@ export default {
 				selectedBorder: '1px rgba(255, 255, 255) solid'
 			},
 			swiper_current: 0,
-			product_bg: 'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/jinsiyuma/product_bg.png',
-			product_btn: 'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/jinsiyuma/product_btn.png',
-			search_btn: 'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/jinsiyuma/search_btn.png',
-			swiper_list: [
-				{
-					image_cover: 'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/jinsiyuma/product/product_banner1.jpg',
-					image_icon1: 'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/jinsiyuma/case_cover1.png',
-					image_icon2: 'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/jinsiyuma/recommend.png'
-				},
-				{
-					image_cover: 'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/jinsiyuma/product/product_banner2.jpg',
-					image_icon1: 'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/jinsiyuma/case_cover1.png',
-					image_icon2: 'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/jinsiyuma/recommend.png'
-				},
-				{
-					image_cover: 'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/jinsiyuma/product/product_banner3.jpg',
-					image_icon1: 'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/jinsiyuma/case_cover1.png',
-					image_icon2: 'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/jinsiyuma/recommend.png'
-				},
-				{
-					image_cover: 'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/jinsiyuma/product/product_banner4.jpg',
-					image_icon1: 'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/jinsiyuma/case_cover1.png',
-					image_icon2: 'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/jinsiyuma/recommend.png'
-				},
-				{
-					image_cover: 'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/jinsiyuma/product/product_banner5.jpg',
-					image_icon1: 'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/jinsiyuma/case_cover1.png',
-					image_icon2: 'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/jinsiyuma/recommend.png'
-				}
-			]
+			title: '', // 标题
+			product_bg: '', // 背景
+			list: [], // 产品列表
+			list_count: 0, // 总条数
+			sort_data: {}, // 总规格数据
+			size_tabs_index: 0 // 大，中，小规格下标
 		};
 	},
-	onLoad() {
-		uni.hideTabBar();
-		setTimeout(() => {
-			this.loading = false;
-		}, 500);
+	async onLoad() {
+		uni.hideTabBar(); // 隐藏原生tabbar
+		await this.get_list();
+		await this.get_sortList();
+	},
+	onPageScroll(e) {
+		this.scroll_number = Number(Math.floor(e.scrollTop));
+		// console.log('scroll_number', this.scroll_number);
+		if (this.scroll_number > 200) {
+			this.tabbar_bg = true;
+		} else {
+			this.tabbar_bg = false;
+		}
 	},
 	methods: {
-		onPageScroll(e) {
-			this.scroll_number = Number(Math.floor(e.scrollTop));
-			// console.log('scroll_number', this.scroll_number);
-			if (this.scroll_number > 200) {
-				this.tabbar_bg = true;
-			} else {
-				this.tabbar_bg = false;
-			}
-		},
+		// 点击滑动指定位置
 		up_scroll() {
 			const query = wx.createSelectorQuery();
 			query.select('.banner_bg').boundingClientRect();
@@ -159,6 +141,7 @@ export default {
 				});
 			});
 		},
+		// 轮播切换
 		change_swiper(e) {
 			this.swiper_current = e.detail.current;
 		},
@@ -167,10 +150,62 @@ export default {
 				url: '/pages/search/search'
 			});
 		},
-		open_product_details() {
+		// 跳转产品列表
+		open_product_details(id) {
 			uni.navigateTo({
-				url: '/pages/product/product_details'
+				url: `/pages/product/product_details?id=${id}?`
 			});
+		},
+		// 品牌动态列表
+		async get_list() {
+			const res = await this.$request.post('/product/recommend');
+			console.log('产品馆列表', res);
+			this.product_bg = res.product_bg_image;
+			this.title = res.product_title;
+			this.list = res.recommend_list;
+		},
+		// 规格系列
+		async get_sortList() {
+			const res = await this.$request.post('/common/getOpts');
+			console.log('规格', res);
+			this.sort_data = res;
+		},
+		// 查询系列绑定的规格参数
+		selectItem(id) {
+			console.log(id);
+			if (id != -1) {
+				this.sortEditSize(id);
+			} else if (id == -1) {
+			}
+		},
+		// 大，中，小规格切换
+		sizeTabsIndex(i, id) {
+			// console.log('sizeTabsIndex', i);
+			this.size_tabs_index = i;
+			if (id) {
+				// console.log('id', id);
+				this.sortEditSize(id);
+			}
+		},
+		// 排序 - 规格选中
+		async sortEditSize(id) {
+			const res = await this.$request.post('/product/getSizes', { serie_id: id });
+			console.log('系列参数', res);
+			const sort_data = this.sort_data;
+			let list = sort_data.size_type[this.size_tabs_index].child.map((item) => {
+				item.isClick = false;
+				res.forEach((item2) => {
+					if (item.value == item2) {
+						item.isClick = true;
+					}
+				});
+				return item;
+			});
+			// console.log('list', list);
+			sort_data.size_type[this.size_tabs_index].child = list;
+
+			this.sort_data = sort_data;
+			// console.log('sort_data', this.sort_data);
 		}
 	}
 };
@@ -178,6 +213,7 @@ export default {
 <style>
 page {
 	overflow-x: hidden;
+	background: rgba(10, 43, 78, 0.7);
 }
 </style>
 <style lang="less" scoped>
@@ -186,14 +222,20 @@ page {
 }
 .nav_left_icon {
 	border: 1px solid rgba(255, 255, 255, 0.3);
-	border-radius: 50%;
-	width: 58rpx;
+	border-radius: 24rpx;
 	height: 58rpx;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	padding: 0 20rpx;
 	.iconfont {
 		font-size: 36rpx;
+		color: #fff;
+		padding-right: 6rpx;
+	}
+
+	.text {
+		font-size: 28rpx;
 		color: #fff;
 	}
 }
@@ -201,6 +243,10 @@ page {
 .scroll_nav_search {
 	border: 1px solid rgba(0, 0, 0, 0.5);
 	.iconfont {
+		color: #313131;
+	}
+
+	.text {
 		color: #313131;
 	}
 }

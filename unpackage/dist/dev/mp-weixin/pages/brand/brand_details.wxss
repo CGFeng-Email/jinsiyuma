@@ -70,6 +70,9 @@
 .brand_details .up_content .b_content .iconfont.data-v-c93775ce {
   color: #a7a7a7;
 }
+.brand_details .up_content .b_content .b_box.data-v-c93775ce {
+  width: 48%;
+}
 .brand_details .up_content .b_content .b_box .up.data-v-c93775ce {
   font-size: 26rpx;
   font-weight: 600;
@@ -84,6 +87,7 @@
   color: #313131;
 }
 .brand_details .up_content .b_content .b_box .up_text.data-v-c93775ce {
+  height: 80rpx;
   color: #313131;
   font-size: 24rpx;
   font-weight: 600;
@@ -113,15 +117,26 @@
   justify-content: flex-end;
 }
 .brand_details .thumbs_up .icon.data-v-c93775ce {
+  padding: 0 0 10rpx 20rpx;
   text-align: center;
 }
 .brand_details .thumbs_up .icon .iconfont.data-v-c93775ce {
-  font-size: 28rpx;
+  font-size: 32rpx;
   color: #a7a7a7;
 }
 .brand_details .thumbs_up .icon .num.data-v-c93775ce {
   font-size: 24rpx;
   color: #a7a7a7;
+}
+.brand_details .thumbs_up .icon .white.data-v-c93775ce {
+  color: #fff;
+}
+.brand_details .thumbs_up .icon .text.data-v-c93775ce {
+  font-size: 24rpx;
+  color: #a7a7a7;
+}
+.brand_details .thumbs_up .icon .active.data-v-c93775ce {
+  color: #0a2b4e;
 }
 .brand_details .pay_close.data-v-c93775ce {
   margin-top: 30rpx;
@@ -137,6 +152,7 @@
 }
 .brand_details .pay_close .left .logo.data-v-c93775ce {
   width: 80rpx;
+  height: 80rpx;
 }
 .brand_details .pay_close .left .content.data-v-c93775ce {
   padding: 0 20rpx;

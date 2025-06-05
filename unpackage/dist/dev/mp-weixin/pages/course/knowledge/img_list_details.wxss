@@ -1,0 +1,10 @@
+.list.data-v-2ce36859 {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20rpx;
+}
+.list .cover.data-v-2ce36859 {
+  width: 100%;
+  margin-bottom: 20rpx;
+}
+

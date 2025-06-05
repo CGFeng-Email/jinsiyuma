@@ -3,7 +3,7 @@
 	<view class="container">
 		<u-loading-page :loading="loading" loading-text="快速加载中..." bg-color="#f8f8f8" fontSize="14" iconSize="36" color="#999" loadingColor="#999"></u-loading-page>
 		<view class="room" v-if="!loading">
-			<FIXEDNAVBAR :navbar_title="navbar_title"></FIXEDNAVBAR>
+			<FIXEDNAVBAR :navbar_title="navbar_title" :iconColor="true"></FIXEDNAVBAR>
 			<view class="cover_box">
 				<image class="cover" :src="banner" mode="widthFix"></image>
 			</view>
@@ -23,12 +23,14 @@
 							placeholder="请输入手机号"
 						></u--input>
 					</u-form-item>
-					<u-form-item label="预约时间" prop="date" @click="date_show = true">
-						<u--input color="#313131" placeholderClass="placeholderClass" v-model="model.date" border="none" placeholder="请选择" disabled></u--input>
+					<u-form-item label="预约时间" prop="date">
+						<picker mode="date" @change="date_change">
+							<u--input color="#313131" placeholderClass="placeholderClass" v-model="model.date" border="none" placeholder="请选择" disabled></u--input>
+						</picker>
 						<u-icon slot="right" name="arrow-right" color="#CECECE"></u-icon>
 					</u-form-item>
 					<u-form-item label="预约门店" prop="map">
-						<picker mode="selector" @change="bindPickShop" :range="shop_list" range-key="name" :value="pick_index">
+						<picker mode="selector" @change="bindPickShop" :range="shop_list" range-key="title" :value="shop_index">
 							<u--input color="#313131" placeholderClass="placeholderClass" v-model="model.map" border="none" placeholder="请选择"></u--input>
 						</picker>
 						<i slot="right" name="arrow-right" class="iconfont icon-daohang"></i>
@@ -37,14 +39,13 @@
 			</view>
 			<view class="btn_content">
 				<view class="btn">
-					<u-button @click="open_success" shape="circle" :throttleTime="200" color="#0A2B4E">立即预约</u-button>
+					<u-button @click="submit" shape="circle" :throttleTime="200" color="#0A2B4E">立即预约</u-button>
 				</view>
 				<view class="btn">
 					<u-button @click="open_subscribe" shape="circle" :throttleTime="200" plain>我的预约</u-button>
 				</view>
 			</view>
 		</view>
-		<u-calendar :show="date_show" @confirm="dateconfirm" color="#0A2B4E" showLunar title="预约时间" closeOnClickOverlay round="12" @close="date_show = false"></u-calendar>
 	</view>
 </template>
 
@@ -56,7 +57,7 @@ export default {
 		return {
 			loading: true,
 			navbar_title: '预约设计',
-			banner: 'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/jinsiyuma/product_design_banner.png',
+			banner: '',
 			errorType: 'toast',
 			date_show: false,
 			labelStyle: {
@@ -66,7 +67,8 @@ export default {
 				name: '',
 				phone: null,
 				map: '',
-				date: ''
+				date: '',
+				store_id: '' //门店id
 			},
 			rules: {
 				name: {
@@ -95,46 +97,97 @@ export default {
 					trigger: ['blur', 'change']
 				}
 			},
-			shop_list: [{ name: '广州门店' }, { name: '深圳店' }, { name: '上海店' }, { name: '北京店' }],
-			pick_index: 0
+			shop_list: [], // 门店列表
+			shop_index: 0 // 门店列表下标
 		};
 	},
-	onLoad() {
-		setTimeout(() => {
-			this.loading = false
-		}, 800);
+	async onLoad(e) {
+		await this.initial(e);
+		await this.get_shop_list();
+		this.loading = false;
 	},
 	methods: {
-		// 预约时间
-		dateconfirm(e) {
-			console.log(e);
-			this.model.date = e[0];
-			this.date_show = false;
-		},
-		bindPickShop: function (e) {
-			console.log(e);
-			this.pick_index = e.detail.value;
-			this.model.map = this.shop_list[this.pick_index].name;
-		},
-		open_success() {
-			uni.navigateTo({
-				url: '/pages/product/success'
+		// 初始化
+		async initial(e) {
+			console.log('參數', e);
+			return new Promise((resolve, reject) => {
+				try {
+					const app = getApp();
+					this.banner = app.globalData.design_banner;
+					this.model.date = e.date;
+					this.model.store_id = e.id;
+					this.model.map = e.title;
+					this.model.phone = uni.getStorageSync('mobile');
+					resolve();
+				} catch (e) {
+					reject('服务器发生错误')
+				}
 			});
 		},
+		// 预约时间回调
+		date_change(e) {
+			this.model.date = e.detail.value;
+		},
+		// 获取门店列表
+		async get_shop_list() {
+			const res = await this.$request.post('/store/getLetterList');
+			const list = [];
+			const total_list = [];
+			for (let key in res) {
+				const obj = {
+					key,
+					list: res[key]
+				};
+				list.push(obj);
+			}
+			list.forEach((item) => {
+				item.list.forEach((item2) => {
+					total_list.push({
+						id: item2.id,
+						title: item2.title
+					});
+				});
+			});
+			this.shop_list = total_list;
+		},
+		// 门店选择回调
+		bindPickShop: function (e) {
+			this.shop_index = e.detail.value;
+			this.model.map = this.shop_list[this.shop_index].title;
+			this.model.store_id = this.shop_list[this.shop_index].id;
+		},
+		// 跳转我的预约
 		open_subscribe() {
 			uni.navigateTo({
-				url: '/pages/product/my_subscribe'
+				url: `/pages/product/my_subscribe?index=${1}`
 			});
 		},
+		// 提交预约
 		submit() {
-			this.$refs.uForm
-				.validate()
-				.then((res) => {
-					// uni.$u.toast('校验通过');
-				})
-				.catch((errors) => {
-					// uni.$u.toast('校验失败');
+			this.$refs.uForm.validate().then(async (res) => {
+				uni.showLoading({
+					title: '加载中'
 				});
+				const model = this.model;
+				const params = {
+					real_name: model.name,
+					mobile: model.phone,
+					subscribe_date: model.date,
+					store_id: model.store_id
+				};
+				const data = await this.$request.post2('/subscribe/design', params);
+				uni.hideLoading();
+				if (data.code == 1) {
+					uni.redirectTo({
+						url: '/pages/product/success'
+					});
+				} else {
+					uni.showToast({
+						title: data.msg,
+						duration: 2000
+					});
+				}
+			});
 		}
 	}
 };

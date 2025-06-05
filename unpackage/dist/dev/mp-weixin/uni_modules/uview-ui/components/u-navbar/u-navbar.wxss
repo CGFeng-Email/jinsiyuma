@@ -44,7 +44,7 @@ view.data-v-95dec1ae, scroll-view.data-v-95dec1ae, swiper-item.data-v-95dec1ae {
   flex-direction: row;
   align-items: center;
   height: 44px;
-  background-color: #9acafc;
+  background-color: #fff;
   position: relative;
   justify-content: center;
 }

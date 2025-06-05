@@ -24,11 +24,23 @@
 							:style="[$u.addStyle(itemStyle), {flex: scrollable ? '' : 1}]"
 							:class="[`u-tabs__wrapper__nav__item-${index}`, item.disabled && 'u-tabs__wrapper__nav__item--disabled']"
 						>
-							<text
+							<!-- <text
 								:class="[item.disabled && 'u-tabs__wrapper__nav__item__text--disabled']"
 								class="u-tabs__wrapper__nav__item__text"
 								:style="[textStyle(index)]"
-							>{{ item[keyName] }}</text>
+							>{{ item[keyName] }}</text> -->
+							<view :class="[item.disabled && 'u-tabs__wrapper__nav__item__text--disabled']"
+															class="u-tabs__wrapper__nav__item__text" :style="[textStyle(index)]">
+							    <!-- #ifdef MP -->
+							    <slot>{{ item[keyName] }}</slot>
+							    <slot name="lable{{index}}"></slot>
+							    <!-- #endif -->
+							
+							    <!-- #ifdef H5 || APP-PLUS  -->
+							    <slot :name="`lable${index}`">{{ item[keyName] }}</slot>
+							    <!-- #endif -->
+							</view>
+							
 							<u-badge
 								:show="!!(item.badge && (item.badge.show || item.badge.isDot || item.badge.value))"
 								:isDot="item.badge && item.badge.isDot || propsBadge.isDot"

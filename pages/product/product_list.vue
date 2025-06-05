@@ -1,75 +1,101 @@
 <template>
 	<view class="container">
 		<view class="product_list">
-			<view class="banner">
-				<u--image :src="banner" width="100%" height="316px" mode="widthFix"></u--image>
-			</view>
-			<view class="list">
-				<view class="item" v-for="(item, index) in list" :key="index" @click="open_product_details">
-					<view class="head">
-						<view class="left">
-							<image class="icon" src="/static/img/product_list_icon.png" mode="widthFix"></image>
-							<text class="title">{{ item.title }}</text>
-							<image class="hot" src="/static/img/hot.png" mode="widthFix"></image>
-						</view>
-						<view class="right">D654P</view>
-					</view>
-					<view class="desc">拉什莫尔</view>
-					<view class="item_content">
-						<view class="item__content_left">
-							<view class="left_box">
-								<view class="icon">
-									<i v-if="item.is_true" class="iconfont icon-shoucang2"></i>
-									<i v-else class="iconfont icon-shoucang-yishoucang"></i>
-								</view>
-								<view class="text">
-									<u-count-to :endVal="item.collect" color="#CDCDCD" fontSize="12"></u-count-to>
+			<u-transition :show="true">
+				<!-- banner -->
+				<view class="banner cover_box">
+					<image class="cover" :src="product_list_banner" mode="widthFix"></image>
+				</view>
+				<!-- 数据为空 -->
+				<SERVICE_EMPTY v-if="empty && list.length == 0"></SERVICE_EMPTY>
+				<!-- 列表 -->
+				<view class="list" v-else>
+					<view class="item" v-for="(item, index) in list" :key="index" @click="open_product_details(item.id)">
+						<u-transition :show="true" mode="fade-up">
+							<view class="head">
+								<view class="left">
+									<image class="icon" src="/static/img/product_list_icon.png" mode="widthFix"></image>
+									<text class="title over2">{{ item.title }}</text>
+									<image class="hot" src="/static/img/hot.png" mode="widthFix" v-if="item.is_hot"></image>
 								</view>
 							</view>
-							<view class="left_box">
-								<view class="icon">
-									<i class="iconfont icon-kanguos"></i>
+							<view class="desc">
+								<!-- 颜色 -->
+								<text class="text">{{ item.color_name }}</text>
+								<text class="code" v-if="item.sn">编码：{{ item.sn }}</text>
+							</view>
+							<view class="item_content">
+								<view class="item__content_left">
+									<!-- 收藏 -->
+									<view class="left_box" @click.stop="click_isCollect(index, item.id, item.is_collect)">
+										<view class="icon">
+											<i v-if="item.is_collect == 0" class="iconfont icon-shoucang2"></i>
+											<i v-else class="iconfont icon-shoucang-yishoucang"></i>
+										</view>
+										<view class="text code">
+											{{ item.collect_num }}
+										</view>
+									</view>
+									<!-- 浏览量 -->
+									<view class="left_box">
+										<view class="icon">
+											<i class="iconfont icon-kanguos"></i>
+										</view>
+										<view class="text">
+											<u-count-to :endVal="item.view_actual" color="#CDCDCD" fontSize="12"></u-count-to>
+										</view>
+									</view>
 								</view>
-								<view class="text">
-									<u-count-to :endVal="item.see" color="#CDCDCD" fontSize="12"></u-count-to>
+								<view class="cover_box border-radius">
+									<image class="cover" :src="item.image" :lazy-load="true"></image>
 								</view>
 							</view>
-						</view>
-						<view class="cover_box border-radius">
-							<u--image width="100%" height="100%" :src="item.image" mode="widthFix"></u--image>
-						</view>
+						</u-transition>
+					</view>
+					<!-- 加载提示 -->
+					<view class="loadmore_box">
+						<u-loadmore :status="list_loading" loadingText="正在加载..." loadmoreText=" " color="#b7b7b7" fontSize="12" iconSize="12" />
 					</view>
 				</view>
-
-				<!-- 加载提示 -->
-				<view class="loadmore_box">
-					<u-loadmore :status="list_loading" loadingText=" " loadmoreText=" " color="#b7b7b7" fontSize="12" iconSize="16" />
-				</view>
-			</view>
-			<!-- 联系我们 -->
-			<CONTACTUS :topShow="topShow"></CONTACTUS>
-			<!-- 返回顶部 -->
-			<TOPICON :topShow="topShow"></TOPICON>
+				<!-- 联系我们 -->
+				<CONTACTUS :topShow="topShow"></CONTACTUS>
+				<!-- 返回顶部 -->
+				<TOPICON :topShow="topShow"></TOPICON>
+				<!-- 登录模态框 -->
+				<LOGINMODAL :show="login_modal" @loginModalCancel="loginModalCancel"></LOGINMODAL>
+			</u-transition>
 		</view>
 	</view>
 </template>
 
 <script>
+import SERVICE_EMPTY from '@/components/service_empty.vue';
 export default {
+	components: { SERVICE_EMPTY },
 	data() {
 		return {
-			banner: 'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/jinsiyuma/product_list_banner.png',
+			product_list_banner: '', // banner
 			list_loading: 'loadmore', // 加载前值为loadmore，加载中为loading，没有数据为nomore
 			list: [],
+			list_count: 0, // 总条数
+			total_page_num: 0, // 总页数
 			scroll_number: 0, // 页面滚动距离
 			topShow: false, // 返回顶部
+			login_modal: false, // 登录模态框
+			params: {}, // 参数
+			keyword: '', // 搜索关键词
+			empty: false // 内容为空
 		};
 	},
-	onLoad() {
-		this.get_list();
+	async onLoad(e) {
+		console.log('e', e);
+		this.params = JSON.parse(e.params);
+		this.params.page = 1;
+		await this.get_banner();
+		await this.get_list();
 	},
 	onReachBottom() {
-		this.get_list();
+		this.get_list(true);
 	},
 	onPageScroll(e) {
 		this.scroll_number = Number(Math.floor(e.scrollTop));
@@ -80,61 +106,65 @@ export default {
 		}
 	},
 	methods: {
-		open_product_details() {
-			uni.navigateTo({
-				url: '/pages/product/product_details'
+		async get_banner() {
+			return new Promise((resolve, reject) => {
+				try {
+					const app = getApp();
+					this.product_list_banner = app.globalData.product_list_banner;
+					resolve();
+				} catch (err) {
+					reject('服务器发生错误');
+				}
 			});
 		},
-		async get_list() {
-			if (this.list.length >= 100) return (this.list_loading = 'nomore');
+		async get_list(loadmore = false) {
 			this.list_loading = 'loading';
-			const { data } = await this.data_list();
-			this.list = [...this.list, ...data];
-			console.log('list', this.list);
+			const params = this.params;
+			const list_count = this.list_count;
+			const total_page_num = this.total_page_num;
+			if (loadmore) {
+				params.page += 1;
+				if(this.list.length >= list_count || params.page > list_count) return (this.list_loading = 'nomore');
+				this.params.page = params.page;
+			}
+			let url = '/product/getList';
+			if (params.recomment) {
+				url = '/new_product/getList';
+			}
+			const res = await this.$request.post(url, params);
+			console.log('产品列表', res);
+			if (res.lists.length <= 0) {
+				this.empty = true;
+			}
+			// 总条数, 向上取整
+			this.list_count = Math.ceil(res.count);
+			// 总页数, 向上取整
+			this.total_page_num = Math.ceil(res.page_no);
+			this.list = [...this.list, ...res.lists];
+			if(this.list.length >= list_count || params.page > list_count) return (this.list_loading = 'nomore');
 			this.list_loading = 'loadmore';
 		},
-		data_list() {
-			return new Promise((resolve) => {
-				const cover_list = [
-					'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/jinsiyuma/product_list_cover.png',
-					'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/jinsiyuma/case_cover1.png',
-					'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/jinsiyuma/case_cover2.png',
-					'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/jinsiyuma/case_cover3.png',
-					'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/jinsiyuma/case_cover4.png'
-				];
-
-				// 标题
-				const title_list = ['新中式｜传统与现代的', '轻奢｜既厚重华丽又具', '奶油风｜清浅氛国书写', '佗寂风｜自然 本真 极简'];
-
-				// 查看
-				const see = [1523, 876, 986, 27];
-
-				// 收藏
-				const collect = [56, 88, 89, 124];
-
-				// 是否收藏
-				const is_true = [true, false, false, true];
-
-				const get_data = (i) => {
-					const randomIndex = Math.floor(Math.random() * 5);
-					return {
-						image: cover_list[randomIndex],
-						title: title_list[randomIndex],
-						see: see[randomIndex],
-						collect: collect[randomIndex],
-						is_true: is_true[randomIndex]
-					};
-				};
-
-				const list = [];
-
-				setTimeout(() => {
-					for (let i = 0; i < 20; i++) {
-						list.push(get_data(i));
-					}
-					resolve({ data: list });
-				}, 200);
+		// 详情
+		open_product_details(id) {
+			uni.navigateTo({
+				url: `/pages/product/product_details?id=${id}`
 			});
+		},
+		// 是否收藏
+		async click_isCollect(index, id, is_collect) {
+			const user_id = uni.getStorageSync('user_id');
+			if (!user_id) return (this.login_modal = true);
+			let collect = is_collect == 0 ? 1 : 0;
+			const res = await this.$request.post('/product/setCollect', {
+				id,
+				type: collect
+			});
+			this.list[index].is_collect = collect;
+			is_collect == 0 ? (this.list[index].collect_num += 1) : (this.list[index].collect_num -= 1);
+		},
+		// 登录模态框关闭
+		loginModalCancel() {
+			this.login_modal = false;
 		}
 	}
 };
@@ -161,37 +191,45 @@ page {
 				padding: 30rpx 30rpx 0 30rpx;
 				display: flex;
 				justify-content: space-between;
-				align-items: center;
 				.left {
+					flex: 1;
 					display: flex;
-					align-items: center;
 					.icon {
+						margin-top: 8rpx;
 						width: 12rpx;
 						height: 26rpx;
+						flex: none;
 					}
 					.hot {
+						margin-top: 8rpx;
+						margin-left: 6rpx;
 						width: 32rpx;
 						height: 32rpx;
+						flex: none;
 					}
 					.title {
 						font-size: 30rpx;
 						font-weight: 600;
 						color: #313131;
-						padding: 0 10rpx;
+						padding-left: 10rpx;
 					}
-				}
-				.right {
-					font-size: 22rpx;
-					font-weight: 400;
-					color: #3e3e3e;
 				}
 			}
 			.desc {
-				font-size: 22rpx;
-				font-family: Inter-Regular, Inter;
+				font-size: 26rpx;
+				line-height: 36rpx;
 				font-weight: 400;
 				color: #979797;
-				padding: 10rpx 0 30rpx 52rpx;
+				padding: 10rpx 20rpx 30rpx 52rpx;
+				display: flex;
+				justify-content: space-between;
+				.text {
+					flex: 1;
+				}
+				.code {
+					padding-left: 20rpx;
+					flex: none;
+				}
 			}
 			.item_content {
 				display: flex;
@@ -212,6 +250,10 @@ page {
 						text-align: center;
 						padding-right: 28rpx;
 						padding-bottom: 20rpx;
+						.text {
+							font-size: 24rpx;
+							color: #cdcdcd;
+						}
 					}
 					.icon {
 						.iconfont {
@@ -228,9 +270,11 @@ page {
 				}
 				.cover_box {
 					flex: 1;
-					height: 350rpx;
 					overflow: hidden;
 					background: #f8f8f8;
+					.cover {
+						height: 350rpx;
+					}
 				}
 			}
 		}

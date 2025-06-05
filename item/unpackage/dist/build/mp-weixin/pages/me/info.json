@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "个人信息",
-  "navigationBarBackgroundColor": "#fff",
-  "usingComponents": {
-    "u-button": "/uni_modules/uview-ui/components/u-button/u-button"
-  }
-}

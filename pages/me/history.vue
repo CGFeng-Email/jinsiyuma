@@ -22,158 +22,98 @@
 			</view>
 			<view class="list_content">
 				<view class="list">
-					<u-swipe-action>
-						<block v-if="tabs_index == 0">
-							<u-swipe-action-item class="u_swiper_content" v-for="(item, index) in list" :key="index" :options="options3" @click="item_del(index)">
-								<view class="item border-radius">
-									<view class="time">06-19</view>
-									<view class="item_content">
-										<view class="circle">
-											<i class="iconfont icon-left"></i>
-										</view>
-										<view class="right_content new_product border-radius box-shadow" @click="item_click">
-											<view class="item_title">
-												<view class="left">
-													<image class="icon" src="/static/img/product_list_icon.png" mode="widthFix"></image>
-													<view class="text">{{ item.title }}</view>
-												</view>
-												<view class="desc">D654P</view>
+					<u-transition :show="true">
+						<u-swipe-action>
+							<block v-if="tabs_index == 0 || tabs_index == 2">
+								<u-swipe-action-item class="u_swiper_content" v-for="(item, index) in list" :key="index" :options="options3" @click="item_del(index, item.id)">
+									<view class="item border-radius">
+										<view class="time">{{ item.add_at }}</view>
+										<view class="item_content">
+											<view class="circle">
+												<i class="iconfont icon-left"></i>
 											</view>
-											<view class="bottom_content">
-												<view class="bc_left">
-													<view class="icon_box">
-														<i class="iconfont icon-shoucang2" v-if="item.is_true"></i>
-														<i class="iconfont icon-shoucang3 active" v-else></i>
-														<text class="text">{{ item.collect }}</text>
+											<view class="right_content new_product border-radius box-shadow" @click="open_details(item.id)">
+												<view class="item_title">
+													<view class="left">
+														<image class="icon" src="/static/img/product_list_icon.png" mode="widthFix"></image>
+														<view class="text">{{ item.title }}</view>
 													</view>
-													<view class="icon_box">
-														<i class="iconfont icon-kanguos"></i>
-														<text class="text">{{ item.see }}</text>
-													</view>
+													<view class="desc">{{ item.sn }}</view>
 												</view>
-												<view class="cover_box">
-													<image class="cover" :src="item.image"></image>
-												</view>
-											</view>
-										</view>
-									</view>
-								</view>
-							</u-swipe-action-item>
-						</block>
-						<block v-else-if="tabs_index == 1">
-							<u-swipe-action-item v-for="(item, index) in list" :key="index" :options="options3" @click="change_item(index)">
-								<view class="item border-radius">
-									<view class="time">06-19</view>
-									<view class="item_content">
-										<view class="circle">
-											<i class="iconfont icon-left"></i>
-										</view>
-										<view class="right_content brand_content border-radius box-shadow" @click="item_click">
-											<view class="brand_left">
-												<view class="brand_title over2">
-													{{ item.title }}
-												</view>
-												<view class="brand_bottom">
-													<view class="brand_desc">#装修宝典</view>
-													<view class="brand_static">
-														<view class="brnad_icon_box">
+												<view class="bottom_content">
+													<view class="bc_left">
+														<!-- 收藏 -->
+														<view class="icon_box" @click.stop="click_isCollect(index, item.id, item.is_collect)">
+															<i class="iconfont icon-shoucang3 active" v-if="item.is_collect"></i>
+															<i class="iconfont icon-shoucang2" v-else></i>
+															<text class="text">{{ item.collect_num }}</text>
+														</view>
+														<!-- 浏览 -->
+														<view class="icon_box">
 															<i class="iconfont icon-kanguos"></i>
-															<text class="brand_text">{{ item.see }}</text>
-														</view>
-														<view class="brnad_icon_box">
-															<i class="iconfont icon-dianzan6" v-if="item.is_true"></i>
-															<i class="iconfont icon-yizan" v-else></i>
-															<text class="brand_text">{{ item.see }}</text>
+															<text class="text">{{ item.view_actual }}</text>
 														</view>
 													</view>
-												</view>
-											</view>
-											<view class="brand_right cover_box">
-												<image class="cover border-radius" :src="item.image"></image>
-											</view>
-										</view>
-									</view>
-								</view>
-							</u-swipe-action-item>
-						</block>
-						<block v-else-if="tabs_index == 2">
-							<u-swipe-action-item v-for="(item, index) in list" :key="index" :options="options3" @click="change_item(index)">
-								<view class="item border-radius">
-									<view class="time">06-19</view>
-									<view class="item_content">
-										<view class="circle">
-											<i class="iconfont icon-left"></i>
-										</view>
-										<view class="right_content new_product border-radius box-shadow" @click="item_click">
-											<view class="item_title">
-												<view class="left">
-													<image class="icon" src="/static/img/product_list_icon.png" mode="widthFix"></image>
-													<text class="text">{{ item.title }}</text>
-												</view>
-												<view class="desc">D654P</view>
-											</view>
-											<view class="bottom_content">
-												<view class="bc_left">
-													<view class="icon_box">
-														<i class="iconfont icon-shoucang2" v-if="item.is_true"></i>
-														<i class="iconfont icon-shoucang3 active" v-else></i>
-														<text class="text">{{ item.collect }}</text>
+													<view class="cover_box">
+														<image class="cover" :src="item.image"></image>
 													</view>
-													<view class="icon_box">
-														<i class="iconfont icon-kanguos"></i>
-														<text class="text">{{ item.see }}</text>
-													</view>
-												</view>
-												<view class="cover_box">
-													<image class="cover" :src="item.image"></image>
 												</view>
 											</view>
 										</view>
 									</view>
-								</view>
-							</u-swipe-action-item>
-						</block>
-						<block v-else>
-							<u-swipe-action-item v-for="(item, index) in list" :key="index" :options="options3" @click="change_item(index)">
-								<view class="item border-radius">
-									<view class="time">06-19</view>
-									<view class="item_content">
-										<view class="circle">
-											<i class="iconfont icon-left"></i>
-										</view>
-										<view class="right_content brand_content border-radius box-shadow" @click="item_click">
-											<view class="brand_left">
-												<view class="brand_title over2">
-													{{ item.title }}
-												</view>
-												<view class="brand_bottom">
-													<view class="brand_desc">#装修宝典</view>
-													<view class="brand_static">
-														<view class="brnad_icon_box">
-															<i class="iconfont icon-kanguos"></i>
-															<text class="brand_text">{{ item.see }}</text>
-														</view>
-														<view class="brnad_icon_box">
-															<i class="iconfont icon-dianzan6" v-if="item.is_true"></i>
-															<i class="iconfont icon-yizan" v-else></i>
-															<text class="brand_text">{{ item.see }}</text>
+								</u-swipe-action-item>
+							</block>
+							<block v-else-if="tabs_index == 1 || tabs_index == 3">
+								<u-swipe-action-item v-for="(item, index) in list" :key="index" :options="options3" @click="item_del(index, item.id)">
+									<view class="item border-radius">
+										<view class="time">{{ item.add_at }}</view>
+										<view class="item_content">
+											<view class="circle">
+												<i class="iconfont icon-left"></i>
+											</view>
+											<view class="right_content brand_content border-radius box-shadow" @click="open_details(item.id)">
+												<view class="brand_left">
+													<view class="brand_title over2">
+														{{ item.title }}
+													</view>
+													<view class="brand_bottom">
+														<view class="brand_desc" v-if="tabs_index == 1">#{{ item.cate_name }}</view>
+														<view class="brand_desc" v-if="tabs_index == 3">{{ item.serie_name }}</view>
+														<view class="brand_static">
+															<!-- 浏览 -->
+															<view class="brnad_icon_box">
+																<i class="iconfont icon-kanguos"></i>
+																<text class="brand_text" v-if="tabs_index == 1">{{ item.click }}</text>
+																<text class="brand_text" v-if="tabs_index == 3">{{ item.view_actual }}</text>
+															</view>
+															<!-- 点赞 -->
+															<view class="brnad_icon_box" v-if="tabs_index == 1" @click.stop="is_praise(item.id, item.is_like, index)">
+																<i class="iconfont icon-yizan active" v-if="item.is_like"></i>
+																<i class="iconfont icon-dianzan6" v-else></i>
+																<text class="brand_text">{{ item.like }}</text>
+															</view>
+															<view class="brnad_icon_box" v-if="tabs_index == 3" @click.stop="is_praise(item.id, item.is_like, index)">
+																<i class="iconfont icon-yizan active" v-if="item.is_like"></i>
+																<i class="iconfont icon-dianzan6" v-else></i>
+																<text class="brand_text">{{ item.like_actual }}</text>
+															</view>
 														</view>
 													</view>
 												</view>
-											</view>
-											<view class="brand_right cover_box">
-												<image class="cover border-radius" :src="item.image"></image>
+												<view class="brand_right cover_box">
+													<image class="cover border-radius" :src="item.image"></image>
+												</view>
 											</view>
 										</view>
 									</view>
-								</view>
-							</u-swipe-action-item>
-						</block>
-					</u-swipe-action>
+								</u-swipe-action-item>
+							</block>
+						</u-swipe-action>
+					</u-transition>
 				</view>
 				<!-- 加载提示 -->
 				<view class="loadmore_box">
-					<u-loadmore :status="list_loading" loadingText=" " loadmoreText=" " color="#b7b7b7" fontSize="12" iconSize="16" />
+					<u-loadmore :status="list_loading" loadingText="正在加载..." loadmoreText=" " color="#606266" iconColor="#606266" fontSize="12" iconSize="14" />
 				</view>
 				<!-- 返回顶部 -->
 				<TOPICON :topShow="topShow" :details="true" :right_num="true"></TOPICON>
@@ -186,16 +126,20 @@
 export default {
 	data() {
 		return {
-			// banner: 'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/jinsiyuma/history_banner.png',
-			banner: 'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/jinsiyuma/history/history_top_banner.jpg',
+			banner: '', // banner
 			topShow: false, // 返回顶部
 			scroll_number: 0, // 页面滚动距离
 			navbar_style: {
-				color: '#fff'
+				color: '#313131',
+				fontSize: '14px',
+				fontWeight: 600
 			},
 			tabs_index: 0, // 导航栏索引
 			list_loading: 'loadmore', // 加载前值为loadmore，加载中为loading，没有数据为nomore
 			list: [],
+			page: 1,
+			size: 10,
+			// 删除按钮样式
 			options3: [
 				{
 					icon: 'trash-fill',
@@ -207,11 +151,12 @@ export default {
 			]
 		};
 	},
-	onLoad() {
-		this.get_list();
+	async onLoad() {
+		await this.initial();
+		await this.get_list();
 	},
 	onReachBottom() {
-		this.get_list();
+		this.get_list(true);
 	},
 	onPageScroll(e) {
 		this.scroll_number = Number(Math.floor(e.scrollTop));
@@ -222,88 +167,166 @@ export default {
 		}
 	},
 	methods: {
-		tabs_item(i) {
+		async initial() {
+			return new Promise((resolve, reject) => {
+				try {
+					const app = getApp();
+					this.banner = app.globalData.history_banner;
+					resolve();
+				} catch (e) {
+					//TODO handle the exception
+				}
+			});
+		},
+		// tabs
+		async tabs_item(i) {
+			await this.initial_list(i);
+			await this.get_list();
+		},
+		// 初始列表数组数据
+		initial_list(i) {
+			this.page = 1;
 			this.tabs_index = i;
 			this.list = [];
-			this.get_list();
 		},
-		async get_list() {
-			if (this.list.length >= 100) return (this.list_loading = 'nomore');
+		async get_list(loadmore = false) {
 			this.list_loading = 'loading';
-			const { data } = await this.data_list();
-			this.list = [...this.list, ...data];
-			console.log('list', this.list);
+			let page = this.page;
+			const size = this.size;
+			const tabs_index = this.tabs_index;
+			if (loadmore) {
+				page += 1;
+				this.page = page;
+				if (this.list.length >= this.list_count) return (this.list_loading = 'nomore');
+			}
+			let url = '';
+			if (tabs_index == 0) {
+				url = '/new_product/getHistory';
+			} else if (tabs_index == 1) {
+				url = '/article/getHistory';
+			} else if (tabs_index == 2) {
+				url = '/product/getHistory';
+			} else {
+				url = '/example/getHistory';
+			}
+			const res = await this.$request.post(url, {
+				page,
+				size
+			});
+			console.log('浏览历史', res);
+			this.list_count = res.count;
+			this.list = [...this.list, ...res.lists];
+			if (this.list.length >= this.list_count) return (this.list_loading = 'nomore');
 			this.list_loading = 'loadmore';
 		},
-		data_list() {
-			return new Promise((resolve) => {
-				const cover_list = [
-					'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/jinsiyuma/product_list_cover.png',
-					'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/jinsiyuma/case_cover1.png',
-					'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/jinsiyuma/case_cover2.png',
-					'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/jinsiyuma/case_cover3.png',
-					'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/jinsiyuma/case_cover4.png'
-				];
-
-				// 标题
-				const title_list = ['户主故事｜她把法式轻奢装进家， 时尚博主骨子里的浪漫,', '丝帛羽白', '轻奢｜既厚重华丽又具', '奶油风｜清浅氛国书写', '佗寂风｜自然 本真 极简'];
-
-				// 查看
-				const see = [1523, 876, 986, 27, 36];
-
-				// 收藏
-				const collect = [56, 88, 89, 124, 76];
-
-				// 是否收藏
-				const is_true = [true, false, false, true, false];
-
-				const get_data = (i) => {
-					const randomIndex = Math.floor(Math.random() * 5);
-					return {
-						image: cover_list[randomIndex],
-						title: title_list[randomIndex],
-						see: see[randomIndex],
-						collect: collect[randomIndex],
-						is_true: is_true[randomIndex],
-						desc: '星寂之夜900*1800'
-					};
-				};
-
-				const list = [];
-
-				setTimeout(() => {
-					for (let i = 0; i < 20; i++) {
-						list.push(get_data(i));
-					}
-					resolve({ data: list });
-				}, 1300);
+		// 是否收藏
+		async click_isCollect(index, id, is_collect) {
+			uni.showLoading({
+				title: '加载中',
+				mask: true
+			});
+			const tabs_index = this.tabs_index;
+			let collect = is_collect ? 0 : 1;
+			let url = '';
+			if (tabs_index == 0) {
+				url = '/new_product/setCollect';
+			} else if (tabs_index == 1) {
+				url = '/article/setLike';
+			} else if (tabs_index == 2) {
+				url = '/product/setCollect';
+			} else {
+				url = '/example/setCollect';
+			}
+			const res = await this.$request.post(url, {
+				id,
+				type: collect
+			});
+			if (is_collect) {
+				this.list[index].is_collect = false;
+				this.list[index].collect_num -= 1;
+			} else {
+				this.list[index].is_collect = true;
+				this.list[index].collect_num += 1;
+			}
+			uni.hideLoading();
+		},
+		// 是否点赞
+		async is_praise(id, is_like, index) {
+			const tabs_index = this.tabs_index;
+			let url = '';
+			if (tabs_index == 0) {
+				url = '/new_product/setLike';
+			} else if (tabs_index == 1) {
+				url = '/article/setLike';
+			} else if (tabs_index == 2) {
+				url = '/product/setLike';
+			} else {
+				url = '/example/setLike';
+			}
+			const res = await this.$request.post(url, {
+				id,
+				type: is_like ? 0 : 1
+			});
+			if (tabs_index == 1) {
+				if (is_like) {
+					this.list[index].like -= 1;
+					this.list[index].is_like = false;
+				} else {
+					this.list[index].like += 1;
+					this.list[index].is_like = true;
+				}
+			} else if (tabs_index == 3) {
+				if (is_like) {
+					this.list[index].like_actual -= 1;
+					this.list[index].is_like = false;
+				} else {
+					this.list[index].like_actual += 1;
+					this.list[index].is_like = true;
+				}
+			}
+		},
+		// 跳转详情
+		open_details(id) {
+			const tabs_index = this.tabs_index;
+			let details_url = '';
+			if (tabs_index == 0) {
+				details_url = `/pages/product/product_details?id=${id}&recomment=${true}`;
+			} else if (tabs_index == 1) {
+				details_url = `/pages/brand/brand_details?id=${id}`;
+			} else if (tabs_index == 2) {
+				details_url = `/pages/product/product_details?id=${id}`;
+			} else {
+				details_url = `/pages/case/details?id=${id}`;
+			}
+			uni.navigateTo({
+				url: details_url
 			});
 		},
 		// 删除索引
-		item_del(e) {
-			console.log(e);
-		},
-		// 跳转详情
-		item_click() {
-			console.log('details', this.tabs_index);
-			const index = this.tabs_index;
-			if (index == 0) {
-				uni.navigateTo({
-					url: '/pages/product/product_details'
-				});
-			} else if (index == 1) {
-				uni.navigateTo({
-					url: '/pages/brand/brand_details'
-				});
-			} else if (index == 2) {
-				uni.navigateTo({
-					url: '/pages/product/product_details'
-				});
+		async item_del(i, id) {
+			uni.showLoading({
+				title: '加载中',
+				mask: true
+			});
+			const tabs_index = this.tabs_index;
+			let url = '';
+			const params = {};
+			if (tabs_index == 0) {
+				params.product_id = id;
+				url = '/new_product/delHistory';
+			} else if (tabs_index == 1) {
+				url = '/article/delHistory';
+				params.article_id = id;
+			} else if (tabs_index == 2) {
+				url = '/product/delHistory';
+				params.product_id = id;
 			} else {
-				uni.navigateTo({
-					url: '/pages/case/details'
-				});
+				url = '/example/delHistory';
+				params.product_id = id;
 			}
+			const res = await this.$request.post(url, params);
+			this.list.splice(i, 1);
+			uni.hideLoading();
 		}
 	}
 };
@@ -519,6 +542,9 @@ export default {
 									.iconfont {
 										font-size: 24rpx;
 										color: #cdcdcd;
+									}
+									.active {
+										color: #fcc863;
 									}
 								}
 							}

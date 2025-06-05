@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 4107933 */
-  src: url('@/static/font/iconfont.woff2?t=1689906092606') format('woff2'),
-       url('@/static/font/iconfont.woff?t=1689906092606') format('woff'),
-       url('@/static/font/iconfont.ttf?t=1689906092606') format('truetype');
+  src: url('@/static/font/iconfont.woff2?t=1701142720970') format('woff2'),
+       url('@/static/font/iconfont.woff?t=1701142720970') format('woff'),
+       url('@/static/font/iconfont.ttf?t=1701142720970') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +11,142 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-24gl-phoneLoudspeaker:before {
+  content: "\e94f";
+}
+
+.icon-zaixiankefucustomerservice:before {
+  content: "\e639";
+}
+
+.icon-tuijian:before {
+  content: "\e616";
+}
+
+.icon-bofang:before {
+  content: "\e624";
+}
+
+.icon-tingzhi:before {
+  content: "\e612";
+}
+
+.icon-24gf-lock:before {
+  content: "\e9d8";
+}
+
+.icon-yunxiazai:before {
+  content: "\e611";
+}
+
+.icon-zuji:before {
+  content: "\e70a";
+}
+
+.icon-shoucang4:before {
+  content: "\e623";
+}
+
+.icon-wuliaotoufang1:before {
+  content: "\e63f";
+}
+
+.icon-zhaobiaofangan:before {
+  content: "\e637";
+}
+
+.icon-wuliaotoufang:before {
+  content: "\e63e";
+}
+
+.icon-yonghu:before {
+  content: "\e615";
+}
+
+.icon-yonghu1:before {
+  content: "\e63d";
+}
+
+.icon-rexiao-huangguan:before {
+  content: "\e610";
+}
+
+.icon-lianjie:before {
+  content: "\e60f";
+}
+
+.icon-good-fill:before {
+  content: "\e83b";
+}
+
+.icon-xiexian:before {
+  content: "\e6ae";
+}
+
+.icon-dian:before {
+  content: "\ec1e";
+}
+
+.icon-shijian:before {
+  content: "\e64d";
+}
+
+.icon-vertical_line:before {
+  content: "\e63c";
+}
+
+.icon-kejian-tianchong:before {
+  content: "\e659";
+}
+
+.icon-shipin:before {
+  content: "\e636";
+}
+
+.icon-linchuangzhishiku-01:before {
+  content: "\e622";
+}
+
+.icon-linchuangzhishiku-01-copy:before {
+  content: "\ed0b";
+}
+
+.icon-zhishiku-copy:before {
+  content: "\ed09";
+}
+
+.icon-zhishiku:before {
+  content: "\e650";
+}
+
+.icon-shouji:before {
+  content: "\e853";
+}
+
+.icon-mima:before {
+  content: "\e62b";
+}
+
+.icon-shouji1:before {
+  content: "\e8bb";
+}
+
+.icon-IDyuming:before {
+  content: "\e67e";
+}
+
+.icon-icon-IDdenglu:before {
+  content: "\e646";
+}
+
+.icon-ID:before {
+  content: "\e66f";
+}
+
+.icon-VR-01:before {
+  content: "\e691";
 }
 
 .icon-sousuo:before {

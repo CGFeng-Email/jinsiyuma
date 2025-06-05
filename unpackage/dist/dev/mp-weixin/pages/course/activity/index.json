@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "活动馆",
+  "navigationBarBackgroundColor": "#fff",
+  "usingComponents": {
+    "u-transition": "/uni_modules/uview-ui/components/u-transition/u-transition",
+    "u-sticky": "/uni_modules/uview-ui/components/u-sticky/u-sticky",
+    "u-search": "/uni_modules/uview-ui/components/u-search/u-search",
+    "u-swiper": "/uni_modules/uview-ui/components/u-swiper/u-swiper",
+    "u-divider": "/uni_modules/uview-ui/components/u-divider/u-divider",
+    "u-empty": "/uni_modules/uview-ui/components/u-empty/u-empty"
+  }
+}

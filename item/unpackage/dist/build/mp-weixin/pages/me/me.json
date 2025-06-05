@@ -1,7 +1,0 @@
-{
-  "navigationStyle": "custom",
-  "usingComponents": {
-    "u-loading-page": "/uni_modules/uview-ui/components/u-loading-page/u-loading-page",
-    "u-navbar": "/uni_modules/uview-ui/components/u-navbar/u-navbar"
-  }
-}

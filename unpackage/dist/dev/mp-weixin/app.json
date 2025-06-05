@@ -3,6 +3,10 @@
     "pages/index/index",
     "pages/login/login",
     "pages/login/register",
+    "pages/login/new_register",
+    "pages/login/forget_password",
+    "pages/login/edit_password",
+    "pages/login/course_loading",
     "pages/agreement/user",
     "pages/agreement/privacy",
     "pages/product/product",
@@ -26,7 +30,28 @@
     "pages/me/accounts",
     "pages/search/search",
     "pages/brand/brand_list",
-    "pages/brand/brand_details"
+    "pages/brand/brand_details",
+    "pages/brand/details",
+    "pages/course/search",
+    "pages/course/knowledge/index",
+    "pages/course/knowledge/video_details",
+    "pages/course/knowledge/img_list",
+    "pages/course/knowledge/img_list_details",
+    "pages/course/knowledge/rookie_details",
+    "pages/course/knowledge/days_ranking_list",
+    "pages/course/knowledge/duration_ranking_list",
+    "pages/course/knowledge/history_list",
+    "pages/course/knowledge/collect_list",
+    "pages/course/knowledge/purchase_list",
+    "pages/course/knowledge/download",
+    "pages/course/knowledge/me_center",
+    "pages/course/activity/index",
+    "pages/course/activity/details",
+    "pages/course/activity/me",
+    "pages/course/activity/history_list",
+    "pages/course/activity/download_list",
+    "pages/course/activity/collect_list",
+    "pages/no_network/no_network"
   ],
   "subPackages": [],
   "window": {
@@ -40,32 +65,32 @@
     "selectedColor": "#0A2B4E",
     "list": [
       {
-        "iconPath": "static/img/index-icon.png",
-        "selectedIconPath": "static/img/index-hover.png",
+        "iconPath": "static/img/tabbar/index-icon.png",
+        "selectedIconPath": "static/img/tabbar/index-hover.png",
         "text": "首页",
         "pagePath": "pages/index/index"
       },
       {
-        "iconPath": "static/img/product-icon.png",
-        "selectedIconPath": "static/img/product-hover.png",
+        "iconPath": "static/img/tabbar/product-icon.png",
+        "selectedIconPath": "static/img/tabbar/product-hover.png",
         "text": "产品馆",
         "pagePath": "pages/product/product"
       },
       {
-        "iconPath": "static/img/case-icon.png",
-        "selectedIconPath": "static/img/case-hover.png",
+        "iconPath": "static/img/tabbar/case-icon.png",
+        "selectedIconPath": "static/img/tabbar/case-hover.png",
         "text": "案例馆",
         "pagePath": "pages/case/case"
       },
       {
-        "iconPath": "static/img/map-icon.png",
-        "selectedIconPath": "static/img/map-hover.png",
-        "text": "门店地址",
-        "pagePath": "pages/map/map"
+        "iconPath": "static/img/tabbar/course-icon.png",
+        "selectedIconPath": "static/img/tabbar/course-hover.png",
+        "text": "商学院",
+        "pagePath": "pages/login/course_loading"
       },
       {
-        "iconPath": "static/img/me-icon.png",
-        "selectedIconPath": "static/img/me-hover.png",
+        "iconPath": "static/img/tabbar/me-icon.png",
+        "selectedIconPath": "static/img/tabbar/me-hover.png",
         "text": "我的",
         "pagePath": "pages/me/me"
       }
@@ -84,6 +109,9 @@
   "usingComponents": {
     "c-o-n-t-a-c-t-u-s": "/components/contact_us",
     "t-o-p-i-c-o-n": "/components/top_icon",
-    "t-a-b-b-a-r": "/components/tabbar"
+    "t-a-b-b-a-r": "/components/tabbar",
+    "l-o-g-i-n-m-o-d-a-l": "/components/login_modal",
+    "c-o-u-r-s-e_-l-o-g-i-n_-m-o-d-e-l": "/components/course_login_model",
+    "e-m-p-t-y": "/components/empty"
   }
 }

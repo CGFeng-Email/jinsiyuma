@@ -16,5 +16,8 @@
             "前端组件",
             "通用组件"
         ]
+    },
+    "dependencies": {
+        "e-commerce_price": "^1.0.3"
     }
 }

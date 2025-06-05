@@ -1,0 +1,1 @@
+<view class="container data-v-3c778146"><u-empty vue-id="52792880-1" text="网络发生错误,请检查网络状况!" icon="{{icon}}" marginTop="80" class="data-v-3c778146" bind:__l="__l"></u-empty></view>

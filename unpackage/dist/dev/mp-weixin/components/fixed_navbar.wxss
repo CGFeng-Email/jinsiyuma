@@ -7,10 +7,16 @@
 .u-nav-slot .iconfont.data-v-4667fc76 {
   font-size: 42rpx;
   color: #000;
-  font-weight: 600;
-  padding-right: 42rpx;
+  font-weight: 500;
+  padding-right: 32rpx;
 }
 .u-nav-slot .icon-zhuye-mian.data-v-4667fc76 {
   font-weight: 500;
+}
+.u-nav-slot .white.data-v-4667fc76 {
+  color: #fff;
+}
+.u-nav-slot .block.data-v-4667fc76 {
+  color: #000;
 }
 

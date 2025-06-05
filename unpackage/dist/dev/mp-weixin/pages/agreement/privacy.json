@@ -2,5 +2,7 @@
   "navigationBarTitleText": "隐私协议",
   "backgroundColor": "#fff",
   "navigationBarBackgroundColor": "#fff",
-  "usingComponents": {}
+  "usingComponents": {
+    "u-parse": "/uni_modules/uview-ui/components/u-parse/u-parse"
+  }
 }

@@ -28,6 +28,8 @@
 .info .list .item .right .cover.data-v-0547d848 {
   width: 92rpx;
   height: 92rpx;
+  border-radius: 50%;
+  overflow: hidden;
 }
 .info .list .item .right .iconfont.data-v-0547d848 {
   font-size: 24rpx;
@@ -59,6 +61,14 @@
   font-size: 28rpx;
   font-weight: 500;
   color: #464646;
+}
+.info .list .item .cover_box.data-v-0547d848 {
+  background: none;
+  box-shadow: none;
+  padding: 0 !important;
+}
+.info .list .item .cover_box.data-v-0547d848::after {
+  display: none;
 }
 .info .list .p_right.data-v-0547d848 {
   padding-right: 40rpx;

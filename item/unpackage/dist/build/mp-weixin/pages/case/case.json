@@ -1,9 +1,0 @@
-{
-  "navigationStyle": "custom",
-  "usingComponents": {
-    "u-navbar": "/uni_modules/uview-ui/components/u-navbar/u-navbar",
-    "u-loadmore": "/uni_modules/uview-ui/components/u-loadmore/u-loadmore",
-    "l-i-s-t": "/pages/case/list",
-    "s-e-r-v-i-c-e_-e-m-p-t-y": "/components/service_empty"
-  }
-}

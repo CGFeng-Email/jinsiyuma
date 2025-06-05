@@ -70,6 +70,7 @@ page {
 .container .recommend_swiper .swiper_conent .swiper-item .cover.data-v-57280228 {
   border-radius: 16rpx 16rpx 0 0;
   width: 100%;
+  height: 352rpx;
 }
 .container .recommend_swiper .swiper_conent .swiper-item .item_content.data-v-57280228 {
   width: 100%;
@@ -99,15 +100,15 @@ page {
 }
 .container .recommend_swiper .swiper_conent .swiper-item .item_content .statuc .box.data-v-57280228 {
   text-align: center;
-  font-size: 22rpx;
-  font-weight: 400;
-  color: #cdcdcd;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 .container .recommend_swiper .swiper_conent .swiper-item .item_content .statuc .box .text.data-v-57280228 {
   padding-left: 6rpx;
+  font-size: 22rpx;
+  font-weight: 400;
+  color: #cdcdcd;
 }
 .container .recommend_swiper .swiper_conent .swiper-item .item_content .statuc .box .iconfont.data-v-57280228 {
   font-size: 24rpx;
@@ -115,6 +116,9 @@ page {
 }
 .container .recommend_swiper .swiper_conent .swiper-item .item_content .statuc .box .active.data-v-57280228 {
   color: #fcc863;
+}
+.container .recommend_swiper .swiper_conent .swiper-item .item_content .statuc .box .white.data-v-57280228 {
+  color: #fff;
 }
 .container .recommend_swiper.data-v-57280228 .wx-swiper-dot {
   width: 12rpx;
@@ -151,15 +155,15 @@ page {
 }
 .container .dynamic_list .list_item .list_item_contenr .item_title.data-v-57280228 {
   font-size: 28rpx;
-  font-weight: bold;
+  font-weight: 500;
   color: #313131;
-  line-height: 33rpx;
+  line-height: 38rpx;
 }
 .container .dynamic_list .list_item .list_item_contenr .item_desc.data-v-57280228 {
   font-size: 26rpx;
   font-weight: 400;
   color: #888888;
-  line-height: 30rpx;
+  line-height: 36rpx;
   margin: 20rpx 0;
 }
 .container .dynamic_list .list_item .list_item_contenr .bottom.data-v-57280228 {
@@ -168,23 +172,32 @@ page {
   align-items: center;
 }
 .container .dynamic_list .list_item .list_item_contenr .bottom .b_box.data-v-57280228 {
+  display: flex;
+  align-items: center;
   font-size: 22rpx;
   font-weight: 400;
   color: #cdcdcd;
-  line-height: 26rpx;
 }
 .container .dynamic_list .list_item .list_item_contenr .bottom .b_box .iconfont.data-v-57280228 {
   font-size: 24rpx;
   color: #cdcdcd;
   padding-left: 16rpx;
 }
-.container .dynamic_list .list_item .list_item_contenr .bottom .b_box .lis.data-v-57280228 {
+.container .dynamic_list .list_item .list_item_contenr .bottom .b_box .text.data-v-57280228 {
+  font-size: 22rpx;
+  font-weight: 400;
+  color: #cdcdcd;
+  line-height: 26rpx;
   padding: 0 12rpx 0 6rpx;
 }
 .container .dynamic_list .list_item .list_item_contenr .bottom .b_box .active.data-v-57280228 {
   color: #fcc863;
 }
+.container .dynamic_list .list_item .list_item_contenr .bottom .b_box .white.data-v-57280228 {
+  color: #fff;
+}
 .container .dynamic_list .list_item .list_item_contenr .bottom .box.data-v-57280228 {
+  padding-top: 10rpx;
   display: flex;
   justify-content: space-between;
   align-items: center;

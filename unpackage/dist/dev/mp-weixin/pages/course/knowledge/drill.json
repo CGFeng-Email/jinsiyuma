@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "u-transition": "/uni_modules/uview-ui/components/u-transition/u-transition",
+    "u-list": "/uni_modules/uview-ui/components/u-list/u-list",
+    "u-loadmore": "/uni_modules/uview-ui/components/u-loadmore/u-loadmore",
+    "u-empty": "/uni_modules/uview-ui/components/u-empty/u-empty"
+  }
+}

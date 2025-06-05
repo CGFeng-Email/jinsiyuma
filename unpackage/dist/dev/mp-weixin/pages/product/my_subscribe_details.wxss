@@ -14,6 +14,9 @@ page {
 	color: #8c8c8c;
 	line-height: 35rpx;
 }
+[v-cloak] {
+	display: none !important;
+}
 
 .my_subscribe_details .my_subscribe_content.data-v-5e12c793 {
   margin: auto;
@@ -66,6 +69,15 @@ page {
   color: #313131;
   padding-left: 6rpx;
 }
+.my_subscribe_details .my_subscribe_content .sub_head .tabs_phone.data-v-5e12c793 {
+  padding-left: 0;
+}
+.my_subscribe_details .my_subscribe_content .tabs_sub_head.data-v-5e12c793 {
+  padding: 0 0 28rpx;
+}
+.my_subscribe_details .my_subscribe_content .content_cover.data-v-5e12c793 {
+  height: 314rpx;
+}
 .my_subscribe_details .my_subscribe_content .map_content.data-v-5e12c793 {
   display: flex;
   justify-content: space-between;
@@ -74,6 +86,12 @@ page {
   font-weight: 400;
   color: #7c7c7c;
   padding-top: 20rpx;
+}
+.my_subscribe_details .my_subscribe_content .map_content .text.data-v-5e12c793 {
+  font-size: 28rpx;
+  font-weight: 400;
+  color: #7c7c7c;
+  padding: 6rpx 0;
 }
 .my_subscribe_details .my_subscribe_content .map_content .iconfont.data-v-5e12c793 {
   display: inline-block;
@@ -84,6 +102,16 @@ page {
 }
 .my_subscribe_details .my_subscribe_content .map_content .icon-daohang.data-v-5e12c793 {
   color: #0a2b4e;
+}
+.my_subscribe_details .my_subscribe_content .map_content .tabs_icon.data-v-5e12c793 {
+  font-size: 48rpx;
+}
+.my_subscribe_details .my_subscribe_content .tabs_map_content.data-v-5e12c793 {
+  align-items: initial;
+}
+.my_subscribe_details .my_subscribe_content .tabs_map_content .iconfont.data-v-5e12c793 {
+  -webkit-transform: translateY(6rpx);
+          transform: translateY(6rpx);
 }
 .my_subscribe_details .btn_box.data-v-5e12c793 {
   position: fixed;

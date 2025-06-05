@@ -1,8 +1,8 @@
 <template>
-	<u-navbar :placeholder="true" :title="navbar_title" :titleStyle="navbarStyle">
+	<u-navbar :placeholder="placeholder" :title="navbar_title" :titleStyle="iconColor ? blockNavbarStyle : navbarStyle" :bgColor="transparent ? 'transparent' : '#fff'">
 		<view class="u-nav-slot" slot="left">
-			<i class="iconfont icon-left" @click="left_return"></i>
-			<i class="iconfont icon-zhuye-mian" @click="open_index"></i>
+			<i class="iconfont icon-left" :class="[iconColor ? 'block' : 'white']" @click="left_return"></i>
+			<i class="iconfont icon-zhuye-mian" :class="[iconColor ? 'block' : 'white']" @click="open_index"></i>
 		</view>
 	</u-navbar>
 </template>
@@ -13,15 +13,32 @@ export default {
 		navbar_title: {
 			type: String,
 			default: ''
+		},
+		placeholder: {
+			type: Boolean,
+			default: true
+		},
+		transparent: {
+			type: Boolean,
+			default: false
+		},
+		iconColor: {
+			type: Boolean,
+			default: false
 		}
 	},
 	data() {
 		return {
 			navbarStyle: {
 				fontSize: '14px',
-				color: '#313131',
+				color: '#fff',
 				fontWeight: 600
 			},
+			blockNavbarStyle: {
+				fontSize: '14px',
+				color: '#000',
+				fontWeight: 600
+			}
 		};
 	},
 	methods: {
@@ -46,11 +63,19 @@ export default {
 	.iconfont {
 		font-size: 42rpx;
 		color: #000;
-		font-weight: 600;
-		padding-right: 42rpx;
+		font-weight: 500;
+		padding-right: 32rpx;
 	}
 	.icon-zhuye-mian {
 		font-weight: 500;
+	}
+
+	.white {
+		color: #fff;
+	}
+
+	.block {
+		color: #000;
 	}
 }
 </style>

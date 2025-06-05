@@ -15,8 +15,31 @@
 		{
 			"path": "pages/login/register",
 			"style": {
-				"navigationBarTitleText": "金丝玉玛",
-				"navigationBarBackgroundColor": "#fff"
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/login/new_register",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/login/forget_password",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/login/edit_password",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/login/course_loading",
+			"style": {
+				"navigationStyle": "custom"
 			}
 		},
 		{
@@ -53,13 +76,13 @@
 			"style": {
 				"navigationStyle": "custom"
 			}
-		}, 
+		},
 		{
 			"path": "pages/product/sort_select_search",
 			"style": {
 				"navigationStyle": "custom"
 			}
-		}, 
+		},
 		{
 			"path": "pages/product/room",
 			"style": {
@@ -83,13 +106,13 @@
 			"style": {
 				"navigationStyle": "custom"
 			}
-		}, 
+		},
 		{
 			"path": "pages/product/my_subscribe_details",
 			"style": {
 				"navigationStyle": "custom"
 			}
-		}, 
+		},
 		{
 			"path": "pages/case/case",
 			"style": {
@@ -180,6 +203,152 @@
 			"style": {
 				"navigationStyle": "custom"
 			}
+		},
+		{
+			"path": "pages/brand/details",
+			"style": {
+				"navigationBarTitleText": "动态详情",
+				"navigationBarBackgroundColor": "#fff"
+			}
+		},
+		{
+			"path": "pages/course/search",
+			"style": {
+				"navigationBarTitleText": "搜索",
+				"navigationBarBackgroundColor": "#fff"
+			}
+		},
+		{
+			"path": "pages/course/knowledge/index",
+			"style": {
+				"navigationBarTitleText": "商学院",
+				"navigationBarBackgroundColor": "#fff"
+			}
+		},
+		{
+			"path": "pages/course/knowledge/video_details",
+			"style": {
+				"navigationBarTitleText": "课程详情",
+				"navigationBarBackgroundColor": "#fff"
+			}
+		},
+		{
+			"path": "pages/course/knowledge/img_list",
+			"style": {
+				"navigationBarTitleText": "进入照片集",
+				"navigationBarBackgroundColor": "#fff"
+			}
+		},
+		{
+			"path": "pages/course/knowledge/img_list_details",
+			"style": {
+				"navigationBarTitleText": "照片集详情",
+				"navigationBarBackgroundColor": "#fff"
+			}
+		},
+		{
+			"path": "pages/course/knowledge/rookie_details",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/course/knowledge/days_ranking_list",
+			"style": {
+				"navigationBarTitleText": "登录天数活跃榜",
+				"navigationBarBackgroundColor": "#fff"
+			}
+		},
+		{
+			"path": "pages/course/knowledge/duration_ranking_list",
+			"style": {
+				"navigationBarTitleText": "在线时长活跃榜",
+				"navigationBarBackgroundColor": "#fff"
+			}
+		},
+		{
+			"path": "pages/course/knowledge/history_list",
+			"style": {
+				"navigationBarTitleText": "历史记录",
+				"navigationBarBackgroundColor": "#fff"
+			}
+		},
+		{
+			"path": "pages/course/knowledge/collect_list",
+			"style": {
+				"navigationBarTitleText": "收藏课程",
+				"navigationBarBackgroundColor": "#fff"
+			}
+		},
+		{
+			"path": "pages/course/knowledge/purchase_list",
+			"style": {
+				"navigationBarTitleText": "购买课程",
+				"navigationBarBackgroundColor": "#fff"
+			}
+		},
+		{
+			"path": "pages/course/knowledge/download",
+			"style": {
+				"navigationBarTitleText": "课程详情",
+				"navigationBarBackgroundColor": "#fff"
+			}
+		},
+		{
+			"path": "pages/course/knowledge/me_center",
+			"style": {
+				"navigationBarTitleText": "个人中心",
+				"navigationBarBackgroundColor": "#fff"
+			}
+		},
+		{
+			"path": "pages/course/activity/index",
+			"style": {
+				"navigationBarTitleText": "活动馆",
+				"navigationBarBackgroundColor": "#fff"
+			}
+		},
+		{
+			"path": "pages/course/activity/details",
+			"style": {
+				"navigationBarTitleText": "活动详情",
+				"navigationBarBackgroundColor": "#fff"
+			}
+		},
+		{
+			"path": "pages/course/activity/me",
+			"style": {
+				"navigationBarTitleText": "活动馆",
+				"navigationBarBackgroundColor": "#fff"
+			}
+		},
+		{
+			"path": "pages/course/activity/history_list",
+			"style": {
+				"navigationBarTitleText": "我的足迹",
+				"navigationBarBackgroundColor": "#fff"
+			}
+		},
+		{
+			"path": "pages/course/activity/download_list",
+			"style": {
+				"navigationBarTitleText": "我的下载",
+				"navigationBarBackgroundColor": "#fff"
+			}
+		},
+		{
+			"path": "pages/course/activity/collect_list",
+			"style": {
+				"navigationBarTitleText": "我的收藏",
+				"navigationBarBackgroundColor": "#fff"
+			}
+		},
+		{
+			"path": "pages/no_network/no_network",
+			"style": {
+				"navigationBarTitleText": "网络提示",
+				"navigationBarBackgroundColor": "#fff"
+			}
 		}
 	],
 	"globalStyle": {
@@ -192,29 +361,29 @@
 		"color": "#CDCDCD",
 		"selectedColor": "#0A2B4E",
 		"list": [{
-				"iconPath": "static/img/index-icon.png",
-				"selectedIconPath": "static/img/index-hover.png",
+				"iconPath": "static/img/tabbar/index-icon.png",
+				"selectedIconPath": "static/img/tabbar/index-hover.png",
 				"text": "首页",
 				"pagePath": "pages/index/index"
 			},
 			{
-				"iconPath": "static/img/product-icon.png",
-				"selectedIconPath": "static/img/product-hover.png",
+				"iconPath": "static/img/tabbar/product-icon.png",
+				"selectedIconPath": "static/img/tabbar/product-hover.png",
 				"text": "产品馆",
 				"pagePath": "pages/product/product"
 			}, {
-				"iconPath": "static/img/case-icon.png",
-				"selectedIconPath": "static/img/case-hover.png",
+				"iconPath": "static/img/tabbar/case-icon.png",
+				"selectedIconPath": "static/img/tabbar/case-hover.png",
 				"text": "案例馆",
 				"pagePath": "pages/case/case"
 			}, {
-				"iconPath": "static/img/map-icon.png",
-				"selectedIconPath": "static/img/map-hover.png",
-				"text": "门店地址",
-				"pagePath": "pages/map/map"
+				"iconPath": "static/img/tabbar/course-icon.png",
+				"selectedIconPath": "static/img/tabbar/course-hover.png",
+				"text": "商学院",
+				"pagePath": "pages/login/course_loading"
 			}, {
-				"iconPath": "static/img/me-icon.png",
-				"selectedIconPath": "static/img/me-hover.png",
+				"iconPath": "static/img/tabbar/me-icon.png",
+				"selectedIconPath": "static/img/tabbar/me-hover.png",
 				"text": "我的",
 				"pagePath": "pages/me/me"
 			}
@@ -222,5 +391,5 @@
 	},
 	"autoscan": true,
 	"uniIdRouter": {}
-	
+
 }

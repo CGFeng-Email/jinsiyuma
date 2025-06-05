@@ -3,23 +3,26 @@ export default {
 		return {
 			share: {
 				title: '金丝玉玛',
-				imageUrl: 'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/jinsiyuma/index_banner/index_banner06.png',
+				imageUrl: '',
 			}
 		}
 	},
-	onShareAppMessage(res) { //发送给朋友
-		if (res.from === 'button') { // 来自页面内分享按钮
+	//发送给朋友
+	onShareAppMessage(res) {
+		// 来自页面内分享按钮
+		if (res.from === 'button') {
 			console.log('按钮', res.target)
 		}
 		return {
 			title: this.share.title,
-			imageUrl: this.share.imageUrl,
+			imageUrl: getApp().globalData.share_banner,
 		}
 	},
-	onShareTimeline() { //分享到朋友圈
+	//分享到朋友圈
+	onShareTimeline() {
 		return {
 			title: this.share.title,
-			imageUrl: this.share.imageUrl,
+			imageUrl: getApp().globalData.share_banner,
 		}
 	},
 }

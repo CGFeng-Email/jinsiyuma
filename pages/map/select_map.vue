@@ -1,21 +1,21 @@
 <template>
 	<view class="map_content">
-		<scroll-view scroll-y="true" class="scroll" :scroll-into-view="itemId" @scroll="left_scroll">
+		<scroll-view scroll-y="true" class="scroll" :scroll-into-view="itemId">
 			<view class="item" v-for="(item, index) in list" :kay="index" :id="'item' + index">
 				<view class="title">
-					{{ item.letter }}
+					{{ item.key }}
 				</view>
 				<view class="map_list">
-					<view class="li" v-for="(item2, index2) in item.data" :key="index2" @click="item(item, index)">
+					<view class="li" :class="item2.id == id ? 'active' : ''" v-for="(item2, index2) in item.list" :key="index2" @click="item_click(item2)">
 						<view class="icon">
 							<i class="iconfont icon-dingweiweizhi"></i>
 						</view>
 						<view class="content">
 							<view class="name">
-								{{ item2.name }}
+								{{ item2.address }}
 							</view>
 							<view class="address">
-								{{ item2.address }}
+								{{ item2.full_address }}
 							</view>
 						</view>
 					</view>
@@ -24,37 +24,59 @@
 		</scroll-view>
 		<scroll-view scroll-y="true" class="list_number">
 			<view class="lis" :class="item_index == index ? 'active' : ''" v-for="(item, index) in list" :key="index" @click="fixed_item(index)">
-				{{item.letter}}
+				{{ item.key }}
 			</view>
 		</scroll-view>
 	</view>
 </template>
 
 <script>
-import mapList from '@/utils/select_map.js';
 export default {
 	data() {
 		return {
-			list: mapList.list,
+			list: {},
 			itemId: 'item0',
-			item_index: 0
+			item_index: 0,
+			id: ''
 		};
 	},
+	onLoad(e) {
+		console.log('e', e);
+		this.id = e.id;
+		this.get_list();
+	},
 	methods: {
-		item(item, index) {
+		item_click(item) {
 			console.log(item);
-			this.item_index = index;
-			
-			uni.switchTab({
-				url: '/pages/map/map'
+			uni.$emit('select_map', {
+				id: item.id
 			});
+			uni.navigateBack();
 		},
 		fixed_item(index) {
 			this.itemId = 'item' + index;
 			this.item_index = index;
 		},
-		left_scroll(e) {
-			console.log(e);
+		async get_list() {
+			const res = await this.$request.post('/store/getLetterList');
+			console.log('门店列表', res);
+			const list = [];
+			for (let key in res) {
+				const obj = {
+					key,
+					list: res[key]
+				};
+				list.push(obj);
+			}
+			this.list = list;
+			list.map((item, index) => {
+				item.list.forEach((item2) => {
+					if (item2.id == this.id) {
+						this.item_index = index;
+						return (this.itemId = 'item' + index);
+					}
+				});
+			});
 		}
 	}
 };
@@ -82,13 +104,13 @@ export default {
 				}
 				.iconfont {
 					font-size: 28rpx;
-					color: #E6E6E8;
+					color: #e6e6e8;
 				}
 				.content {
-					padding: 20rpx 20rpx 20rpx 0;
+					padding: 30rpx 40rpx 20rpx 0;
 					flex: 1;
 					padding-left: 20rpx;
-					border-bottom: 1px solid #E6E6E8;
+					border-bottom: 1px solid #e6e6e8;
 					.name {
 						font-size: 28rpx;
 						font-weight: 400;
@@ -106,6 +128,21 @@ export default {
 				&:last-child {
 					.content {
 						border-bottom: 0;
+					}
+				}
+			}
+			.active {
+				.iconfont {
+					color: #0a2b4e;
+					font-weight: 600;
+				}
+				.content {
+					.name {
+						color: #0a2b4e;
+						font-weight: 600;
+					}
+					.address {
+						color: #0a2b4e;
 					}
 				}
 			}
@@ -133,7 +170,7 @@ export default {
 		border-radius: 50%;
 	}
 	.active {
-		background: #0A2B4E;
+		background: #0a2b4e;
 		color: #fff;
 	}
 }

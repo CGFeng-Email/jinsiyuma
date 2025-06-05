@@ -56,10 +56,13 @@
   font-weight: 400;
   color: #cdcdcd;
   line-height: 26rpx;
-  padding: 0 12rpx;
+  padding: 0 12rpx 0 4rpx;
 }
 .brand_list .item .top_content .left_content .static .right_static .rs_box .active.data-v-d76e1952 {
   color: #fcc863;
+}
+.brand_list .item .top_content .left_content .static .right_static .rs_box .white.data-v-d76e1952 {
+  color: #fff;
 }
 .brand_list .item .top_content .cover.data-v-d76e1952 {
   width: 264rpx;

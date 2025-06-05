@@ -14,15 +14,36 @@
 .me .user_content .left.data-v-259fb574 {
   display: flex;
   align-items: center;
+  position: relative;
 }
 .me .user_content .left .cover_box.data-v-259fb574 {
   background: none;
   border-radius: 50rpx;
   overflow: hidden;
+  box-shadow: none;
+  outline: none;
+}
+.me .user_content .left .cover_box.data-v-259fb574::after {
+  display: none;
 }
 .me .user_content .left .cover_box .cover.data-v-259fb574 {
   width: 122rpx;
   height: 122rpx;
+  border-radius: 50%;
+}
+.me .user_content .left .head_portrait.data-v-259fb574 {
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 122rpx;
+  height: 122rpx;
+  display: block;
+  flex: none;
+}
+.me .user_content .left .head_portrait.data-v-259fb574::after {
+  display: none;
+}
+.me .user_content .left .head_portrait.data-v-259fb574::before {
+  display: none;
 }
 .me .user_content .left .user_info.data-v-259fb574 {
   padding: 0 20rpx;
@@ -39,6 +60,14 @@
   font-weight: 500;
   color: #464646;
   padding-top: 10rpx;
+}
+.me .user_content .left .hide_shadow.data-v-259fb574 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
 }
 .me .user_content .right.data-v-259fb574 {
   padding: 38rpx 0 38rpx 150rpx;
@@ -157,6 +186,9 @@
   height: 68rpx;
   border-radius: 50%;
   overflow: hidden;
+}
+.me .about_us_list .li .left .icon-location-filled.data-v-259fb574 {
+  color: #0a2b4e;
 }
 .me .about_us_list .li .right.data-v-259fb574 {
   font-size: 24rpx;

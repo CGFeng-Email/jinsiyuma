@@ -15,12 +15,11 @@
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
-    },
-    "condition": false
+    }
   },
   "compileType": "miniprogram",
   "libVersion": "2.33.0",
-  "appid": "wxb81dc480cbe6c823",
+  "appid": "wxc9517909c5dfe377",
   "projectname": "item",
   "condition": {},
   "editorSetting": {

@@ -16,4 +16,7 @@
 .u-nav-slot .active.data-v-b980a0d2 {
   color: #fff;
 }
+.u-nav-slot .empty.data-v-b980a0d2 {
+  color: #000;
+}
 

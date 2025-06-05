@@ -1,10 +1,10 @@
 <template>
 	<view class="fixed_bottom">
 		<view class="left">
-			<view class="item">
+			<view class="item" @click="click_collect">
 				<view class="icon">
-					<i v-if="true" class="iconfont icon-shoucang2"></i>
-					<i v-else class="iconfont icon-shoucang-yishoucang"></i>
+					<i v-if="is_collect ==  0" class="iconfont icon-shoucang2"></i>
+					<i v-else class="iconfont icon-shoucang-yishoucang active"></i>
 				</view>
 				<view class="text">收藏</view>
 			</view>
@@ -24,16 +24,38 @@
 
 <script>
 export default {
+	props: {
+		is_collect: {
+			type: Number,
+			default: 0
+		}
+	},
 	methods: {
+		// 预约量房
 		open_room() {
-			uni.navigateTo({
-				url: '/pages/product/room'
-			});
+			const user_id = uni.getStorageSync('user_id');
+			if (user_id) {
+				uni.navigateTo({
+					url: '/pages/product/room'
+				});
+			} else {
+				this.$emit('verifylogin');
+			}
 		},
+		// 预约设计
 		open_design() {
-			uni.navigateTo({
-				url: '/pages/product/design'
-			});
+			const user_id = uni.getStorageSync('user_id');
+			if (user_id) {
+				uni.navigateTo({
+					url: '/pages/product/design'
+				});
+			} else {
+				this.$emit('verifylogin');
+			}
+		},
+		// 收藏
+		click_collect() {
+			this.$emit('click_collect');
 		}
 	}
 };
@@ -79,6 +101,9 @@ export default {
 				content: '';
 				display: none;
 			}
+			.active {
+				color: #0a2b4e;
+			}
 		}
 	}
 	.right {
@@ -92,6 +117,12 @@ export default {
 			height: 80rpx;
 			margin-left: 16rpx;
 			border-color: #0a2b4e;
+			&::after {
+				display: none;
+			}
+			&::before {
+				display: none;
+			}
 		}
 		text {
 			color: #0a2b4e;

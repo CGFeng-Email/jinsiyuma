@@ -1,10 +1,28 @@
 
 page {
-	background: #f8f8f8;
+	background: #fff;
 }
 
 .container.data-v-3df83306 {
   padding: 44px 0 64px;
+}
+.container .navbar_content .u-nav-slot.data-v-3df83306 {
+  border: 1px solid rgba(49, 49, 49, 0.3);
+  border-radius: 24rpx;
+  height: 58rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20rpx;
+}
+.container .navbar_content .u-nav-slot .iconfont.data-v-3df83306 {
+  font-size: 36rpx;
+  color: #313131;
+  padding-right: 6rpx;
+}
+.container .navbar_content .u-nav-slot .text.data-v-3df83306 {
+  font-size: 28rpx;
+  color: #313131;
 }
 .container .nav_tabs_content.data-v-3df83306 {
   position: fixed;

@@ -1,78 +1,75 @@
 <!-- 品牌详情 -->
 <template>
 	<view class="container">
-		<view class="brand_details">
-			<FIXEDNAVBAR :navbar_title="navbar_title"></FIXEDNAVBAR>
-			<view class="brand_details_title">金丝玉玛携手中国航天逐梦九天，展现智造新力量！</view>
+		<FIXEDNAVBAR :navbar_title="navbar_title"></FIXEDNAVBAR>
+		<EMPTY v-if="empty"></EMPTY>
+		<view v-else class="brand_details">
+			<view class="brand_details_title">{{ detail.title }}</view>
 			<view class="time_box">
-				<view class="left">金丝玉玛陶瓷</view>
-				<view class="time">发布时间：2022-07-12</view>
+				<view class="left">{{ detail.author }}</view>
+				<view class="time">发布时间：{{ detail.publish_date }}</view>
 			</view>
+
+			<!-- 视频 -->
 			<view class="video_content border-radius box-shadow">
-				<video class="video border-radius box-shadow" :src="video_src" show-mute-btn title="数字发布视频" play-btn-position="center" object-fit="cover"></video>
+				<video class="video border-radius box-shadow" :src="detail.video" show-mute-btn title="金丝玉玛发布视频" play-btn-position="center" object-fit="cover"></video>
 			</view>
-			
-			<view class="common_text">
-				2022年，对我国航空航天事业是一个特别的年份。至此，我国载人航天工程立项整整30年。习近平总书记不止一次谈到“航天梦”，多次对航天事业发展提出重要指示，每一个航天工程都承载着14亿中国人的梦想，每一个航天工程都是我们中国人的骄傲。
+
+			<!-- 文案内容 -->
+			<view class="content_wrap">
+				<u-parse :content="detail.content" :tagStyle="style" :selectable="true"></u-parse>
 			</view>
-			<view class="common_cover" @click="details_image(0)">
-				<image class="cover border-radius box-shadow" :src="list_cover[0]" mode="widthFix"></image>
+
+			<!-- 详情图片 -->
+			<view class="common_cover" @click="details_image(index)" v-for="(item, index) in detail.content_images" :key="index">
+				<image class="cover border-radius box-shadow" :src="item" mode="widthFix"></image>
 			</view>
-			<view class="common_text">
-				为了传承航天精神和传递航天情怀，传播航天文化和传授航天知识，2022中国航天科普巡展正式开启。在中国航天科普公益巡展组委会的严格把关下，金丝玉玛瓷砖凭借良好的企业信誉、卓越的技术智造、精益求精的工匠精神、创新的星空产品理念，成为入选2022年中国航天科普公益巡展联合宣传伙伴。这是一个企业品牌实力的彰显，更是一场关乎将浩瀚星辰带到千家万户的愿景落地。
-			</view>
-			<view class="common_cover" @click="details_image(1)">
-				<image class="cover border-radius box-shadow" :src="list_cover[1]" mode="widthFix"></image>
-			</view>
-			<view class="common_cover" @click="details_image(2)">
-				<image class="cover border-radius box-shadow" :src="list_cover[2]" mode="widthFix"></image>
-			</view>
-			
+
 			<!-- 底部资料 -->
 			<view class="up_content border-radius box-shadow">
 				<view class="head">
 					<text class="text title">收录于合集</text>
 					<text class="text link">#新闻中心</text>
-					<text class="text see">76</text>
+					<!-- <text class="text see">76</text> -->
 				</view>
 				<view class="b_content">
-					<view class="b_box">
+					<view class="b_box" @click="prev(detail.pre_row.id)">
 						<view class="up">
 							<i class="iconfont icon-left"></i>
 							<text class="up_title">上一篇</text>
 						</view>
-						<view class="up_text over2">第一手猛料！广州设计周金丝玉玛星空瓷砖</view>
+						<view class="up_text over2">{{ detail.pre_row.title }}</view>
 					</view>
 					<view class="line"></view>
-					<view class="b_box">
+					<view class="b_box" @click="next(detail.next_row.id)">
 						<view class="up text_right">
 							<text class="up_title">下一篇</text>
 							<i class="iconfont icon-right-1-copy"></i>
 						</view>
-						<view class="up_text over2">第一手猛料！广州设计周金丝玉玛星空瓷砖</view>
+						<view class="up_text over2">{{ detail.next_row.title }}</view>
 					</view>
 				</view>
 			</view>
 			<view class="read_text">
 				<text class="text">阅读</text>
-				<text class="num">3827</text>
+				<text class="num">{{ detail.click }}</text>
 			</view>
 			<view class="thumbs_up">
-				<view class="icon">
-					<i class="iconfont icon-dianzan6" v-if="true"></i>
-					<i class="iconfont icon-yizan" v-else></i>
-					<text class="num">256</text>
+				<view class="icon" @click="isCollect">
+					<i v-if="detail.is_collect == 0" class="iconfont icon-shoucang2"></i>
+					<i v-else class="iconfont icon-shoucang3 active"></i>
+					<text class="text" :class="detail.is_collect == 1 ? 'active' : ''">收藏</text>
 				</view>
 			</view>
 			<view class="pay_close">
 				<view class="left">
 					<image class="logo" :src="my_logo" mode="widthFix"></image>
 					<view class="content">
-						<view class="c_title">金丝玉玛陶瓷</view>
-						<view class="desc">2篇原创内容</view>
+						<view class="c_title">{{ detail.author }}</view>
+						<view class="desc">原创内容</view>
 					</view>
 				</view>
-				<view class="pay_close_btn box-shadow">关注</view>
+				<!-- <view class="pay_close_btn box-shadow">关注</view> -->
 			</view>
 			<view class="bottom_textarea">
 				<text class="text" @click="textarea_show = true">写留言</text>
@@ -81,7 +78,7 @@
 				<view class="textarea_content">
 					<view class="textarea_title">留言反馈</view>
 					<view class="teatarea_box border-radius">
-						<u--textarea v-model="teatarear" placeholder="请输入内容" count @input="textarea_input" @confirm="textarea_confirm"></u--textarea>
+						<u--textarea v-model="teatarear" placeholder="请输入内容" count @input="textarea_input" @confirm="textarea_btn"></u--textarea>
 					</view>
 					<view class="textarea_btn" @click="textarea_btn">确认</view>
 				</view>
@@ -98,15 +95,20 @@ export default {
 		return {
 			my_logo: 'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/jinsiyuma/me_logo.png',
 			navbar_title: '品牌详情',
-			video_src: 'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/MP4/video.mp4',
-			list_cover: [
-				'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/jinsiyuma/history_banner.png',
-				'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/jinsiyuma/my_subscribe_banner.png',
-				'https://quanyi-1317202885.cos.ap-guangzhou.myqcloud.com/jinsiyuma/product_room_banner.png'
-			],
 			teatarear: '', // 留言
-			textarea_show: false
+			textarea_show: false,
+			detail: {},
+			style: {
+				p: 'font-size: 24rpx !important;color: #181818 !important;line-height: 42rpx !important;background-color: none !important;',
+				span: 'font-size: 24rpx !important;color: #181818 !important;line-height: 42rpx !important;background-color: none !important;',
+				img: 'margin: 10rpx 0; display: block; width: 100%;border-radius: 16rpx;',
+				image: 'margin: 10rpx 0; display: block; width: 100%;border-radius: 16rpx;'
+			},
+			empty: false
 		};
+	},
+	onLoad(e) {
+		this.get_data(e.id);
 	},
 	methods: {
 		textarea_input(e) {
@@ -116,32 +118,70 @@ export default {
 			this.teatarear = '';
 			this.textarea_show = false;
 		},
-		textarea_btn() {
+		async textarea_btn() {
+			const teatarear = this.teatarear;
+			if (!teatarear) {
+				uni.showToast({
+					title: '请输入内容',
+					icon: 'none',
+					duration: 2000
+				});
+				return;
+			}
 			uni.showLoading({
 				title: '正在留言'
 			});
-			setTimeout(() => {
-				this.teatarear = '';
-				this.textarea_show = false;
-				uni.hideLoading();
-			}, 800);
-		},
-		textarea_confirm() {
-			uni.showLoading({
-				title: '正在留言'
+			const res = await this.$request.post('/article/submitComment', {
+				article_id: this.detail.id,
+				content: this.teatarear
 			});
-			setTimeout(() => {
-				this.teatarear = '';
-				this.textarea_show = false;
-				uni.hideLoading();
-			}, 800);
+			this.teatarear = '';
+			this.textarea_show = false;
+			uni.hideLoading();
 		},
+		// 大图预览
 		details_image(i) {
 			uni.previewImage({
 				current: i,
 				loop: true,
-				urls: this.list_cover
-			})
+				urls: this.detail.content_images
+			});
+		},
+		async get_data(id) {
+			uni.showLoading({
+				title: '加载中',
+				mask: true
+			});
+			const res = await this.$request.post('/article/detail', { id });
+			console.log('详情', res);
+			this.detail = res;
+			if (res.length <= 0) {
+				this.empty = true;
+			}
+			uni.hideLoading();
+		},
+		prev(id) {
+			uni.pageScrollTo({
+				scrollTop: 0,
+				duration: 10
+			});
+			this.get_data(id);
+		},
+		next(id) {
+			uni.pageScrollTo({
+				scrollTop: 0,
+				duration: 10
+			});
+			this.get_data(id);
+		},
+		// 收藏
+		async isCollect() {
+			let collect = this.detail.is_collect == 0 ? 1 : 0;
+			const res = await this.$request.post('/article/setCollect', {
+				id: this.detail.id,
+				type: collect
+			});
+			this.detail.is_collect = collect;
 		}
 	}
 };
@@ -218,6 +258,7 @@ export default {
 				color: #a7a7a7;
 			}
 			.b_box {
+				width: 48%;
 				.up {
 					font-size: 26rpx;
 					font-weight: 600;
@@ -232,6 +273,7 @@ export default {
 					}
 				}
 				.up_text {
+					height: 80rpx;
 					color: #313131;
 					font-size: 24rpx;
 					font-weight: 600;
@@ -263,14 +305,25 @@ export default {
 		display: flex;
 		justify-content: flex-end;
 		.icon {
+			padding: 0 0 10rpx 20rpx;
 			text-align: center;
 			.iconfont {
-				font-size: 28rpx;
+				font-size: 32rpx;
 				color: #a7a7a7;
 			}
 			.num {
 				font-size: 24rpx;
 				color: #a7a7a7;
+			}
+			.white {
+				color: #fff;
+			}
+			.text {
+				font-size: 24rpx;
+				color: #a7a7a7;
+			}
+			.active {
+				color: #0a2b4e;
 			}
 		}
 	}
@@ -286,6 +339,7 @@ export default {
 			align-items: center;
 			.logo {
 				width: 80rpx;
+				height: 80rpx;
 			}
 			.content {
 				padding: 0 20rpx;

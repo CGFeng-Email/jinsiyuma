@@ -19,13 +19,13 @@
 }
 .scroll .item .map_list .li .iconfont.data-v-d7549e36 {
   font-size: 28rpx;
-  color: #E6E6E8;
+  color: #e6e6e8;
 }
 .scroll .item .map_list .li .content.data-v-d7549e36 {
-  padding: 20rpx 20rpx 20rpx 0;
+  padding: 30rpx 40rpx 20rpx 0;
   flex: 1;
   padding-left: 20rpx;
-  border-bottom: 1px solid #E6E6E8;
+  border-bottom: 1px solid #e6e6e8;
 }
 .scroll .item .map_list .li .content .name.data-v-d7549e36 {
   font-size: 28rpx;
@@ -42,6 +42,17 @@
 }
 .scroll .item .map_list .li:last-child .content.data-v-d7549e36 {
   border-bottom: 0;
+}
+.scroll .item .map_list .active .iconfont.data-v-d7549e36 {
+  color: #0a2b4e;
+  font-weight: 600;
+}
+.scroll .item .map_list .active .content .name.data-v-d7549e36 {
+  color: #0a2b4e;
+  font-weight: 600;
+}
+.scroll .item .map_list .active .content .address.data-v-d7549e36 {
+  color: #0a2b4e;
 }
 .list_number.data-v-d7549e36 {
   position: fixed;
@@ -65,7 +76,7 @@
   border-radius: 50%;
 }
 .list_number .active.data-v-d7549e36 {
-  background: #0A2B4E;
+  background: #0a2b4e;
   color: #fff;
 }
 

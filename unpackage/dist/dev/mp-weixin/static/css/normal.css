@@ -63,9 +63,11 @@ view {
 }
 
 .over1 {
-	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 1;
 }
 
 .over2 {
@@ -76,12 +78,21 @@ view {
 	-webkit-line-clamp: 2;
 }
 
+.over3 {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+}
+
 .text_right {
 	text-align: right;
 }
 
 image {
 	vertical-align: middle;
+	height: auto;
 }
 
 .cover_box {
@@ -90,6 +101,7 @@ image {
 
 .cover_box .cover {
 	width: 100%;
+	height: auto;
 }
 
 .border-radius {
@@ -123,4 +135,7 @@ image {
 	/* 兼容 iPhone X 及以上设备 */
 }
 
-/* #0A2B4E *//* #CDCDCD */
+/* #0A2B4E */
+/* #CDCDCD */
+/* #fcc863 */
+/* #FFAA00 */

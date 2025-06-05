@@ -1,6 +1,8 @@
 {
   "navigationStyle": "custom",
   "usingComponents": {
+    "u-transition": "/uni_modules/uview-ui/components/u-transition/u-transition",
+    "u-loadmore": "/uni_modules/uview-ui/components/u-loadmore/u-loadmore",
     "f-i-x-e-d-n-a-v-b-a-r": "/components/fixed_navbar"
   }
 }

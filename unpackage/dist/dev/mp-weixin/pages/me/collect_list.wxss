@@ -16,7 +16,6 @@ page {
   background: #fff;
 }
 .collect_list .tabs_content .tabs.data-v-6cf37141 {
-  border-radius: 16rpx;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,14 +31,42 @@ page {
   font-weight: 400;
   color: #7c7c7c;
   padding-bottom: 6rpx;
+  position: relative;
+}
+.collect_list .tabs_content .tabs .item .text.data-v-6cf37141::after {
+  content: '';
+  position: absolute;
+  bottom: -6rpx;
+  left: 0;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  border-radius: 10rpx;
+  overflow: hidden;
+  background: #fff;
+  transition: all 0.5s ease;
 }
 .collect_list .tabs_content .tabs .item .active.data-v-6cf37141 {
   font-weight: 600;
   color: #0a2b4e;
-  border-bottom: 1px solid #0a2b4e;
 }
-.collect_list .tabs_content .tabs .iconfont.data-v-6cf37141 {
-  color: #7c7c7c;
+.collect_list .tabs_content .tabs .item .active.data-v-6cf37141::after {
+  width: 70%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  background: #0a2b4e;
+}
+.collect_list .tabs_content .tabs .line.data-v-6cf37141 {
+  width: 1px;
+  height: 20rpx;
+  background: #7c7c7c;
+  border-radius: 4rpx;
+  opacity: 0.5;
+}
+.collect_list .tabs_content .box_boaow.data-v-6cf37141 {
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
 }
 .collect_list .tabs_content_macos.data-v-6cf37141 {
   top: 64px;
@@ -58,37 +85,45 @@ page {
   padding: 30rpx 30rpx 0 30rpx;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 .collect_list .list_content .list .item .head .left.data-v-6cf37141 {
+  flex: 1;
   display: flex;
-  align-items: center;
 }
 .collect_list .list_content .list .item .head .left .icon.data-v-6cf37141 {
+  margin-top: 8rpx;
   width: 12rpx;
   height: 26rpx;
+  flex: none;
 }
 .collect_list .list_content .list .item .head .left .hot.data-v-6cf37141 {
+  margin-top: 8rpx;
+  margin-left: 6rpx;
   width: 32rpx;
   height: 32rpx;
+  flex: none;
 }
 .collect_list .list_content .list .item .head .left .title.data-v-6cf37141 {
   font-size: 30rpx;
   font-weight: 600;
   color: #313131;
-  padding: 0 10rpx;
-}
-.collect_list .list_content .list .item .head .right.data-v-6cf37141 {
-  font-size: 22rpx;
-  font-weight: 400;
-  color: #3e3e3e;
+  padding-left: 10rpx;
 }
 .collect_list .list_content .list .item .desc.data-v-6cf37141 {
-  font-size: 22rpx;
-  font-family: Inter-Regular, Inter;
+  font-size: 26rpx;
+  line-height: 36rpx;
   font-weight: 400;
   color: #979797;
-  padding: 10rpx 0 30rpx 52rpx;
+  padding: 10rpx 20rpx 30rpx 52rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.collect_list .list_content .list .item .desc .text.data-v-6cf37141 {
+  flex: 1;
+}
+.collect_list .list_content .list .item .desc .code.data-v-6cf37141 {
+  padding-left: 20rpx;
+  flex: none;
 }
 .collect_list .list_content .list .item .item_content.data-v-6cf37141 {
   display: flex;
@@ -121,11 +156,115 @@ page {
 }
 .collect_list .list_content .list .item .item_content .item__content_left .text.data-v-6cf37141 {
   padding-bottom: 20rpx;
+  font-size: 24rpx;
+  color: #cdcdcd;
 }
 .collect_list .list_content .list .item .item_content .cover_box.data-v-6cf37141 {
   flex: 1;
   height: 350rpx;
   overflow: hidden;
   background: #f8f8f8;
+}
+.brand_list.data-v-6cf37141 {
+  padding: 20rpx;
+  padding-bottom: 0;
+}
+.brand_list .item.data-v-6cf37141 {
+  padding: 20rpx 0 0;
+  border-bottom: 1px solid #f8f8f8;
+}
+.brand_list .item .top_content.data-v-6cf37141 {
+  display: flex;
+  justify-content: space-between;
+}
+.brand_list .item .top_content .left_content.data-v-6cf37141 {
+  flex: 1;
+  padding-right: 20rpx;
+}
+.brand_list .item .top_content .left_content .title.data-v-6cf37141 {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #313131;
+  line-height: 42rpx;
+}
+.brand_list .item .top_content .left_content .desc.data-v-6cf37141 {
+  font-size: 26rpx;
+  font-weight: 400;
+  color: #888888;
+  line-height: 30rpx;
+  padding: 10rpx 0;
+}
+.brand_list .item .top_content .left_content .static.data-v-6cf37141 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 0;
+}
+.brand_list .item .top_content .left_content .static .time.data-v-6cf37141 {
+  font-size: 22rpx;
+  font-family: Inter-Regular, Inter;
+  font-weight: 400;
+  color: #cdcdcd;
+  line-height: 26rpx;
+}
+.brand_list .item .top_content .left_content .static .right_static.data-v-6cf37141 {
+  display: flex;
+  align-items: center;
+}
+.brand_list .item .top_content .left_content .static .right_static .rs_box.data-v-6cf37141 {
+  display: flex;
+  align-items: center;
+  padding-left: 20rpx;
+}
+.brand_list .item .top_content .left_content .static .right_static .rs_box .iconfont.data-v-6cf37141 {
+  font-size: 22rpx;
+}
+.brand_list .item .top_content .left_content .static .right_static .rs_box .text.data-v-6cf37141 {
+  font-size: 22rpx;
+  font-weight: 400;
+  color: #cdcdcd;
+  line-height: 26rpx;
+  padding: 0 12rpx 0 4rpx;
+}
+.brand_list .item .top_content .left_content .static .right_static .rs_box .active.data-v-6cf37141 {
+  color: #fcc863;
+}
+.brand_list .item .top_content .left_content .static .right_static .rs_box .white.data-v-6cf37141 {
+  color: #fff;
+}
+.brand_list .item .top_content .cover.data-v-6cf37141 {
+  width: 264rpx;
+  height: 186rpx;
+  border-radius: 8rpx;
+}
+.brand_list .item .bottom_content.data-v-6cf37141 {
+  padding: 20rpx 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.brand_list .item .bottom_content .b_left.data-v-6cf37141 {
+  font-size: 26rpx;
+  font-family: Inter-Semi Bold, Inter;
+  font-weight: 600;
+  color: #717171;
+  line-height: 30rpx;
+}
+.brand_list .item .bottom_content .icon .iconfont.data-v-6cf37141 {
+  font-size: 40rpx;
+  color: #cdcdcd;
+}
+.brand_list .item .bottom_content .icon.data-v-6cf37141 button {
+  margin: 0;
+  padding: 0;
+  background-color: none;
+  line-height: 38rpx;
+  border: 0;
+  outline: none;
+  box-shadow: none;
+  color: transparent;
+}
+.brand_list .item .bottom_content .icon.data-v-6cf37141 button:after {
+  display: none;
 }
 

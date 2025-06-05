@@ -1,6 +1,7 @@
 
 page {
 	overflow-x: hidden;
+	background: rgba(10, 43, 78, 0.7);
 }
 
 .container.data-v-2fbdbe34 {
@@ -8,21 +9,29 @@ page {
 }
 .nav_left_icon.data-v-2fbdbe34 {
   border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  width: 58rpx;
+  border-radius: 24rpx;
   height: 58rpx;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0 20rpx;
 }
 .nav_left_icon .iconfont.data-v-2fbdbe34 {
   font-size: 36rpx;
+  color: #fff;
+  padding-right: 6rpx;
+}
+.nav_left_icon .text.data-v-2fbdbe34 {
+  font-size: 28rpx;
   color: #fff;
 }
 .scroll_nav_search.data-v-2fbdbe34 {
   border: 1px solid rgba(0, 0, 0, 0.5);
 }
 .scroll_nav_search .iconfont.data-v-2fbdbe34 {
+  color: #313131;
+}
+.scroll_nav_search .text.data-v-2fbdbe34 {
   color: #313131;
 }
 .product_content.data-v-2fbdbe34 {

@@ -99,6 +99,13 @@
   border: 1px solid #fca163;
   box-shadow: 0 0 1px rgba(252, 161, 99, 0.1);
 }
+.params_list .params_item .item_content .noClick.data-v-5fbedb5c {
+  background: #e0e0e0;
+  color: #c3c3c3;
+}
+.params_list .params_item .item_content .isClick.data-v-5fbedb5c {
+  background: #fff;
+}
 .params_list .params_item .seriec_select_content.data-v-5fbedb5c {
   display: flex;
   flex-wrap: wrap;
@@ -243,10 +250,10 @@
 }
 .params_list .search_btn_content.data-v-5fbedb5c button {
   border-radius: 46rpx;
-  background: #0A2B4E;
+  background: #0a2b4e;
   font-size: 34rpx;
   font-weight: 500;
-  color: #FFFFFF;
+  color: #ffffff;
   border: 0;
   width: 710rpx;
   height: 100rpx;

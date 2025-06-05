@@ -1,0 +1,43 @@
+.not_find.data-v-5f47b898 {
+  padding: 60rpx 30rpx 0;
+  text-align: center;
+}
+.not_find .name.data-v-5f47b898 {
+  font-size: 26rpx;
+  line-height: 36rpx;
+  color: #333;
+}
+.not_find .desc.data-v-5f47b898 {
+  padding: 10rpx 0;
+  font-size: 24rpx;
+  line-height: 34rpx;
+  color: #9f9f9f;
+}
+.not_find .bottom.data-v-5f47b898 {
+  padding: 50rpx 0;
+  display: flex;
+  justify-content: space-between;
+}
+.not_find .bottom .btn.data-v-5f47b898 {
+  width: 48%;
+  height: 88rpx;
+  text-align: center;
+  line-height: 88rpx;
+  border: 1px solid #ddd;
+  color: #333;
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border-radius: 0;
+  outline: none;
+}
+.not_find .bottom .btn.data-v-5f47b898:after {
+  display: none;
+}
+.not_find .bottom .btn .iconfont.data-v-5f47b898 {
+  color: #333;
+  margin-right: 10rpx;
+}
+

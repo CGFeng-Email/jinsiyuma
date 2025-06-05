@@ -1,0 +1,1 @@
+<view class="empty data-v-392aa2a2" style="{{(top>120?'padding-top:'+top+'px;':'')}}"><u-empty vue-id="27ab9ab8-1" text="{{text}}" icon="{{icon}}" iconSize="{{iconSize}}" class="data-v-392aa2a2" bind:__l="__l"></u-empty></view>

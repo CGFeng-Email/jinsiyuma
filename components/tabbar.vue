@@ -2,7 +2,7 @@
 <template>
 	<view class="custom_tabbar" :class="[tabbar_bg ? 'tabbar_bg' : '', pc_height ? 'pc_height' : '']" v-if="tabbar_show">
 		<block v-for="(item, index) in list" :key="index">
-			<view class="item" :class="tabs_index == index && tabbar_bg ? 'active' : ''" @click="itemChange(index)">
+			<view class="item" :class="tabs_index == index && tabbar_bg ? 'active' : ''" @click="itemChange(item.url)">
 				<view class="icon" v-if="tabbar_bg">
 					<image class="img" :src="item.icon2" mode="widthFix" v-if="tabs_index != index"></image>
 					<image class="img" :src="item.icon2_hover" mode="widthFix" v-else></image>
@@ -40,37 +40,42 @@ export default {
 				{
 					icon: '/static/img/tabbar/index.png',
 					icon_hover: '/static/img/tabbar/index_hover.png',
-					icon2: '/static/img/index-icon.png',
-					icon2_hover: '/static/img/index-hover.png',
-					text: '首页'
+					icon2: '/static/img/tabbar/index-icon.png',
+					icon2_hover: '/static/img/tabbar/index-hover.png',
+					text: '首页',
+					url: '/pages/index/index'
 				},
 				{
 					icon: '/static/img/tabbar/product.png',
 					icon_hover: '/static/img/tabbar/product_hover.png',
-					icon2: '/static/img/product-icon.png',
-					icon2_hover: '/static/img/product-hover.png',
-					text: '产品馆'
+					icon2: '/static/img/tabbar/product-icon.png',
+					icon2_hover: '/static/img/tabbar/product-hover.png',
+					text: '产品馆',
+					url: '/pages/product/product'
 				},
 				{
 					icon: '/static/img/tabbar/case.png',
 					icon_hover: '/static/img/tabbar/case_hover.png',
-					icon2: '/static/img/case-icon.png',
-					icon2_hover: '/static/img/case-hover.png',
-					text: '案例馆'
+					icon2: '/static/img/tabbar/case-icon.png',
+					icon2_hover: '/static/img/tabbar/case-hover.png',
+					text: '案例馆',
+					url: '/pages/case/case'
 				},
 				{
-					icon: '/static/img/tabbar/map.png',
-					icon_hover: '/static/img/tabbar/map_hover.png',
-					icon2: '/static/img/map-icon.png',
-					icon2_hover: '/static/img/map-hover.png',
-					text: '门店地址'
+					icon: '/static/img/tabbar/course.png',
+					icon_hover: '/static/img/tabbar/course_hover.png',
+					icon2: '/static/img/tabbar/course-icon.png',
+					icon2_hover: '/static/img/tabbar/course-hover.png',
+					text: '商学院',
+					url: '/pages/login/course_loading'
 				},
 				{
 					icon: '/static/img/tabbar/me.png',
 					icon_hover: '/static/img/tabbar/me_hover.png',
-					icon2: '/static/img/me-icon.png',
-					icon2_hover: '/static/img/me-hover.png',
-					text: '我的'
+					icon2: '/static/img/tabbar/me-icon.png',
+					icon2_hover: '/static/img/tabbar/me-hover.png',
+					text: '我的',
+					url: '/pages/me/me'
 				}
 			]
 		};
@@ -82,28 +87,10 @@ export default {
 		}
 	},
 	methods: {
-		itemChange(i) {
-			if (i == 0) {
-				uni.switchTab({
-					url: '/pages/index/index'
-				});
-			} else if (i == 1) {
-				uni.switchTab({
-					url: '/pages/product/product'
-				});
-			} else if (i == 2) {
-				uni.switchTab({
-					url: '/pages/case/case'
-				});
-			} else if (i == 3) {
-				uni.switchTab({
-					url: '/pages/map/map'
-				});
-			} else {
-				uni.switchTab({
-					url: '/pages/me/me'
-				});
-			}
+		itemChange(url) {
+			uni.switchTab({
+				url
+			});
 		}
 	}
 };

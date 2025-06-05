@@ -206,6 +206,9 @@
   font-size: 24rpx;
   color: #cdcdcd;
 }
+.history .list_content .list .item .brand_content .brand_left .brand_bottom .brand_static .brnad_icon_box .active.data-v-5a7979d6 {
+  color: #fcc863;
+}
 .history .list_content .list .item .brand_content .brand_right.data-v-5a7979d6 {
   flex: none;
 }

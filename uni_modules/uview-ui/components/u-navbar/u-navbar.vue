@@ -140,7 +140,7 @@
 			@include flex(row);
 			align-items: center;
 			height: 44px;
-			background-color: #9acafc;
+			background-color: #fff;
 			position: relative;
 			justify-content: center;
 
